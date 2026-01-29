@@ -5,7 +5,7 @@ model_list:
     litellm_params:
       model: "openai/Qwen3-14B-FP8_vllm-0.11.0" # 注意：这里也要加 openai/ 前缀
       api_base: "http://localhost:8000/v1"
-      api_key: "yijiali"
+      api_key: "anonymous"
 
 # 可选：设置日志级别
 litellm_settings:

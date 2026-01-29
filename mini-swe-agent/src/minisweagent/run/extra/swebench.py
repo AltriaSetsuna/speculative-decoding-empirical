@@ -190,7 +190,7 @@ def filter_instances(
 
 def specify_instances(instances: list[dict],specify: False) -> list[dict]:
     if specify:
-        with open('/home/yijiali/project/mini-swe-agent/src/minisweagent/run/extra/specify_ids.json', 'r') as f:
+        with open('/home/anonymous/project/mini-swe-agent/src/minisweagent/run/extra/specify_ids.json', 'r') as f:
             data = json.load(f)
             id = data["resolved_ids"] + data["unresolved_ids"]
             instances = [instance for instance in instances if instance["instance_id"] in id]

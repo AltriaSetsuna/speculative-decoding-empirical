@@ -7,3 +7,11 @@ SWE-bench/
 aider-assistant/
 fms-fsdp/
 sglang/
+
+# 忽略 wandb 的日志文件夹
+wandb/
+*.wandb
+.wandb、
+*.out
+*.log
+output

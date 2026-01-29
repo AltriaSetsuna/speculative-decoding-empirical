@@ -56,7 +56,7 @@ jsonschema==4.25.1
 jsonschema-specifications==2025.9.1
 lark==1.2.2
 litellm==1.78.7
-#-e file:///home/yijiali/project/LiveCodeBench
+#-e file:///home/anonymous/project/LiveCodeBench
 llguidance==0.7.30
 llvmlite==0.44.0
 lm-format-enforcer==0.11.3

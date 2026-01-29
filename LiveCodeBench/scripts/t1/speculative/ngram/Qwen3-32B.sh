@@ -54,7 +54,7 @@ RELEASE_VERSION=release_v6
 }
 
 
-python /home/yijiali/project/mini-swe-agent/results/block_second_per_token.py \
+python /home/anonymous/project/mini-swe-agent/results/block_second_per_token.py \
   --start "$startDate" \
   --end "$endDate" \
   --log_path "$LOG_DIR/bspt.log"

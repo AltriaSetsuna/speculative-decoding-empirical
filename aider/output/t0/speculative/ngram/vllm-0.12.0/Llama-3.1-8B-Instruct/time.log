@@ -1,9 +1,0 @@
-model_name: meta-llama/Llama-3.1-8B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"num_speculative_tokens": 5,"method":"ngram","prompt_lookup_max":4}
-=== 任务开始时间: Tue 16 Dec 2025 11:27:55 PM CST ===
-=== 任务结束时间: Wed 17 Dec 2025 12:00:16 AM CST ===
-model_name: meta-llama/Llama-3.1-8B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"num_speculative_tokens": 5,"method":"ngram","prompt_lookup_max":4}
-=== 任务开始时间: Mon 29 Dec 2025 07:14:56 PM CST ===
-=== 任务结束时间: Mon 29 Dec 2025 07:14:57 PM CST ===
-model_name: meta-llama/Llama-3.1-8B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"num_speculative_tokens": 5,"method":"ngram","prompt_lookup_max":4}
-=== 任务开始时间: Mon 29 Dec 2025 07:15:59 PM CST ===
-=== 任务结束时间: Mon 29 Dec 2025 07:37:08 PM CST ===

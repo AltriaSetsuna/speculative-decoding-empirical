@@ -1,4 +1,4 @@
-python3 /home/yijiali/project/FastChat/fastchat/llm_judge/gen_api_answer.py \
+python3 /home/anonymous/project/FastChat/fastchat/llm_judge/gen_api_answer.py \
     --model Llama-3.1-8B-Instruct_vllm-0.12.0 \
     --openai-api-base http://localhost:8081/v1 \
     --parallel 8 \

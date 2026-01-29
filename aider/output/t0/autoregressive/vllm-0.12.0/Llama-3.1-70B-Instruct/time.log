@@ -1,9 +1,0 @@
-model_name: meta-llama/Llama-3.1-70B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: autoregressive \n temperautre: t0
-=== 任务开始时间: Thu 11 Dec 2025 05:25:45 PM CST ===
-=== 任务结束时间: Thu 11 Dec 2025 07:11:47 PM CST ===
-model_name: meta-llama/Llama-3.1-70B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: autoregressive \n temperautre: t0
-=== 任务开始时间: Sun 21 Dec 2025 08:41:35 PM CST ===
-=== 任务结束时间: Sun 21 Dec 2025 09:34:15 PM CST ===
-model_name: meta-llama/Llama-3.1-70B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: autoregressive \n temperautre: t0
-=== 任务开始时间: Mon 29 Dec 2025 03:41:43 PM CST ===
-=== 任务结束时间: Mon 29 Dec 2025 04:28:34 PM CST ===

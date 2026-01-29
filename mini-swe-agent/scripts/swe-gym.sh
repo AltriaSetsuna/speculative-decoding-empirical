@@ -26,7 +26,7 @@ echo "日志目录: $LOG_DIR"
         --output "$LOG_DIR" \
         --workers 8 \
         --model "$CUSTOM_NAME" \
-        --config "/home/yijiali/project/mini-swe-agent/src/minisweagent/config/extra/SWE-Gym.yaml" \
+        --config "/home/anonymous/project/mini-swe-agent/src/minisweagent/config/extra/SWE-Gym.yaml" \
         ; then
         
         echo "❌ 命令执行失败！" >&2
