@@ -1,0 +1,9 @@
+model_name: Qwen/Qwen3-32B \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"num_speculative_tokens": 32,"method":"suffix"}
+=== 任务开始时间: Sat 06 Dec 2025 10:42:21 PM CST ===
+=== 任务结束时间: Sat 06 Dec 2025 11:47:40 PM CST ===
+model_name: Qwen/Qwen3-32B \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"num_speculative_tokens": 32,"method":"suffix"}
+=== 任务开始时间: Mon 29 Dec 2025 08:51:42 AM CST ===
+=== 任务结束时间: Mon 29 Dec 2025 09:21:32 AM CST ===
+model_name: Qwen/Qwen3-32B \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"num_speculative_tokens": 32,"method":"suffix"}
+=== 任务开始时间: Mon 29 Dec 2025 09:38:21 AM CST ===
+=== 任务结束时间: Mon 29 Dec 2025 10:02:56 AM CST ===

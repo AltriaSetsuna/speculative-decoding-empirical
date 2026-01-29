@@ -1,0 +1,12 @@
+model_name: meta-llama/Llama-3.1-70B-Instruct \n FRAME_VERSION: vllm-0.9.2 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "ibm-ai-platform/llama3-70b-accelerator","draft_tensor_parallel_size": 1}
+=== 任务开始时间: Sun 21 Dec 2025 02:51:56 PM CST ===
+model_name: meta-llama/Llama-3.1-70B-Instruct \n FRAME_VERSION: vllm-0.9.2 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "ibm-ai-platform/llama3-70b-accelerator","draft_tensor_parallel_size": 1}
+=== 任务开始时间: Sun 21 Dec 2025 02:52:54 PM CST ===
+=== 任务结束时间: Sun 21 Dec 2025 02:52:58 PM CST ===
+model_name: meta-llama/Llama-3.1-70B-Instruct \n FRAME_VERSION: vllm-0.9.2 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "ibm-ai-platform/llama3-70b-accelerator","draft_tensor_parallel_size": 1}
+=== 任务开始时间: Sun 21 Dec 2025 02:53:07 PM CST ===
+model_name: meta-llama/Llama-3.1-70B-Instruct \n FRAME_VERSION: vllm-0.9.2 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "ibm-ai-platform/llama3-70b-accelerator","draft_tensor_parallel_size": 1}
+=== 任务开始时间: Tue 23 Dec 2025 10:23:06 PM CST ===
+model_name: meta-llama/Llama-3.1-70B-Instruct \n FRAME_VERSION: vllm-0.9.2 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "ibm-ai-platform/llama3-70b-accelerator","draft_tensor_parallel_size": 1}
+=== 任务开始时间: Tue 23 Dec 2025 10:30:20 PM CST ===
+=== 任务结束时间: Wed 24 Dec 2025 03:21:38 AM CST ===

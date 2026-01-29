@@ -1,0 +1,71 @@
+_wandb:
+    value:
+        cli_version: 0.23.1
+        e:
+            02d5mfydeyn3jusx6baxsk89a00uiz9u:
+                codePath: vllm/monitor_vllm.py
+                codePathLocal: monitor_vllm.py
+                cpu_count: 64
+                cpu_count_logical: 128
+                cudaVersion: "12.2"
+                disk:
+                    /:
+                        total: "67245312585728"
+                        used: "34871920349184"
+                email: 1744141921@qq.com
+                executable: /home/yijiali/anaconda3/envs/vllm-0.12.0/bin/python
+                git:
+                    commit: 04f154d31236a6428b8aeb5347a07fb3712a221f
+                    remote: git@gitee.com:bloodybutterfly/speculative-decoding-empirical.git
+                gpu: NVIDIA A800 80GB PCIe
+                gpu_count: 6
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800 80GB PCIe
+                      uuid: GPU-e3573acb-b207-db1c-61bf-107fffe9cfab
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800 80GB PCIe
+                      uuid: GPU-f7e9b710-f21c-8a04-3ab2-8ebb8f5aad86
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800 80GB PCIe
+                      uuid: GPU-4c009cde-1852-f45d-bbfc-57b6819b5420
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800 80GB PCIe
+                      uuid: GPU-047215cf-e8a6-eb96-6531-7e84e1f882be
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800 80GB PCIe
+                      uuid: GPU-2a6b47a8-10f2-fb6a-47a5-2571322ac366
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800 80GB PCIe
+                      uuid: GPU-7af1725e-a33a-4720-f4fa-de237eb58350
+                host: gpu-node5
+                memory:
+                    total: "2164165820416"
+                os: Linux-5.4.0-100-generic-x86_64-with-glibc2.31
+                program: /home/yijiali/project/vllm/monitor_vllm.py
+                python: CPython 3.12.12
+                root: /home/yijiali/project/vllm
+                startedAt: "2025-12-28T14:15:54.588901Z"
+                writerId: 02d5mfydeyn3jusx6baxsk89a00uiz9u
+        m: []
+        python_version: 3.12.12
+        t:
+            "3":
+                - 2
+                - 13
+            "4": 3.12.12
+            "5": 0.23.1
+            "12": 0.23.1
+            "13": linux-x86_64

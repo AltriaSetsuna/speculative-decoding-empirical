@@ -1,0 +1,9 @@
+{
+  "Qwen/Qwen3-4B-Instruct-2507": {
+    "max_tokens": 8192,
+    "input_cost_per_token": 0.0,
+    "output_cost_per_token": 0.0,
+    "litellm_provider": "opai",
+    "mode": "chat"
+  }
+}

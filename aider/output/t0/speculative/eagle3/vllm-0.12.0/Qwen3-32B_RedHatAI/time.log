@@ -1,0 +1,15 @@
+model_name: Qwen/Qwen3-32B \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "RedHatAI/Qwen3-32B-speculator.eagle3", "num_speculative_tokens": 5,"method":"eagle3"}
+=== 任务开始时间: Sun 07 Dec 2025 12:36:05 PM CST ===
+=== 任务结束时间: Sun 07 Dec 2025 01:30:19 PM CST ===
+model_name: Qwen/Qwen3-32B \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "RedHatAI/Qwen3-32B-speculator.eagle3", "num_speculative_tokens": 3,"method":"eagle3"}
+=== 任务开始时间: Sat 27 Dec 2025 01:33:25 PM CST ===
+=== 任务结束时间: Sat 27 Dec 2025 02:03:42 PM CST ===
+model_name: Qwen/Qwen3-32B \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "RedHatAI/Qwen3-32B-speculator.eagle3", "num_speculative_tokens": 3,"method":"eagle3"}
+=== 任务开始时间: Sat 27 Dec 2025 05:05:56 PM CST ===
+=== 任务结束时间: Sat 27 Dec 2025 05:36:42 PM CST ===
+model_name: Qwen/Qwen3-32B \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "RedHatAI/Qwen3-32B-speculator.eagle3", "num_speculative_tokens": 3,"method":"eagle3"}
+=== 任务开始时间: Mon 29 Dec 2025 10:09:36 AM CST ===
+=== 任务结束时间: Mon 29 Dec 2025 10:35:31 AM CST ===
+model_name: Qwen/Qwen3-32B \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "RedHatAI/Qwen3-32B-speculator.eagle3", "num_speculative_tokens": 5,"method":"eagle3"}
+=== 任务开始时间: Sat 24 Jan 2026 07:34:20 PM CST ===
+=== 任务结束时间: Sat 24 Jan 2026 07:57:42 PM CST ===

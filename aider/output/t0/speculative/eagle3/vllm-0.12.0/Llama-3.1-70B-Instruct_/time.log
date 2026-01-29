@@ -1,0 +1,3 @@
+model_name: meta-llama/Llama-3.1-70B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "/home/yijiali/project/SpecForge/outputs/Llama-3.1-70B-eagle3-ST-offline_7/epoch_0_step_7211", "num_speculative_tokens": 3,"method":"eagle3"}
+=== 任务开始时间: Tue 13 Jan 2026 10:00:00 AM CST ===
+=== 任务结束时间: Tue 13 Jan 2026 10:54:49 AM CST ===

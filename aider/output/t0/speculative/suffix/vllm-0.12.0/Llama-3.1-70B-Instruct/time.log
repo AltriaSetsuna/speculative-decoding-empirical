@@ -1,0 +1,6 @@
+model_name: meta-llama/Llama-3.1-70B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"num_speculative_tokens": 32,"method":"suffix"}
+=== 任务开始时间: Sun 21 Dec 2025 10:52:41 PM CST ===
+=== 任务结束时间: Sun 21 Dec 2025 11:39:45 PM CST ===
+model_name: meta-llama/Llama-3.1-70B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"num_speculative_tokens": 32,"method":"suffix"}
+=== 任务开始时间: Mon 29 Dec 2025 05:42:49 PM CST ===
+=== 任务结束时间: Mon 29 Dec 2025 06:31:46 PM CST ===

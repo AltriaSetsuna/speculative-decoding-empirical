@@ -1,0 +1,14 @@
+{"time":"2025-12-28T22:15:54.859772007+08:00","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2025-12-28T22:15:57.886945587+08:00","level":"INFO","msg":"stream: created new stream","id":"e8k3cr9o"}
+{"time":"2025-12-28T22:15:57.887120048+08:00","level":"INFO","msg":"handler: started","stream_id":"e8k3cr9o"}
+{"time":"2025-12-28T22:15:57.887253619+08:00","level":"INFO","msg":"stream: started","id":"e8k3cr9o"}
+{"time":"2025-12-28T22:15:57.887284201+08:00","level":"INFO","msg":"writer: started","stream_id":"e8k3cr9o"}
+{"time":"2025-12-28T22:15:57.887298924+08:00","level":"INFO","msg":"sender: started","stream_id":"e8k3cr9o"}
+{"time":"2025-12-28T22:30:13.457627339+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/bloodybutterfly0816/vllm-inference-analysis/e8k3cr9o/file_stream\": read tcp 10.75.76.77:46232->35.186.228.49:443: read: connection reset by peer"}
+{"time":"2025-12-28T22:33:37.735026004+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/bloodybutterfly0816/vllm-inference-analysis/e8k3cr9o/file_stream\": unexpected EOF"}
+{"time":"2025-12-28T22:37:14.906732977+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-28T22:37:15.991996004+08:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-12-28T22:37:16.002446308+08:00","level":"INFO","msg":"stream: closing","id":"e8k3cr9o"}
+{"time":"2025-12-28T22:37:16.002471758+08:00","level":"INFO","msg":"handler: closed","stream_id":"e8k3cr9o"}
+{"time":"2025-12-28T22:37:16.002544463+08:00","level":"INFO","msg":"sender: closed","stream_id":"e8k3cr9o"}
+{"time":"2025-12-28T22:37:16.00255845+08:00","level":"INFO","msg":"stream: closed","id":"e8k3cr9o"}

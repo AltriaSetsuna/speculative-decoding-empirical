@@ -1,0 +1,9 @@
+EAGLE/
+.aider*
+paper/
+spec_data/
+tmp/
+SWE-bench/
+aider-assistant/
+fms-fsdp/
+sglang/

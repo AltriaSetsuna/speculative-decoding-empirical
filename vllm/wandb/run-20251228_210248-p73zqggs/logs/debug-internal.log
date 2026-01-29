@@ -1,0 +1,13 @@
+{"time":"2025-12-28T21:02:48.611573648+08:00","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2025-12-28T21:02:50.601120262+08:00","level":"INFO","msg":"stream: created new stream","id":"p73zqggs"}
+{"time":"2025-12-28T21:02:50.601279706+08:00","level":"INFO","msg":"handler: started","stream_id":"p73zqggs"}
+{"time":"2025-12-28T21:02:50.601401612+08:00","level":"INFO","msg":"stream: started","id":"p73zqggs"}
+{"time":"2025-12-28T21:02:50.60143401+08:00","level":"INFO","msg":"writer: started","stream_id":"p73zqggs"}
+{"time":"2025-12-28T21:02:50.601435518+08:00","level":"INFO","msg":"sender: started","stream_id":"p73zqggs"}
+{"time":"2025-12-28T21:26:01.974558878+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/bloodybutterfly0816/vllm-inference-analysis/p73zqggs/file_stream\": EOF"}
+{"time":"2025-12-28T21:32:09.283020973+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-28T21:32:10.522290007+08:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-12-28T21:32:10.5275491+08:00","level":"INFO","msg":"stream: closing","id":"p73zqggs"}
+{"time":"2025-12-28T21:32:10.527579497+08:00","level":"INFO","msg":"handler: closed","stream_id":"p73zqggs"}
+{"time":"2025-12-28T21:32:10.527663622+08:00","level":"INFO","msg":"sender: closed","stream_id":"p73zqggs"}
+{"time":"2025-12-28T21:32:10.527696076+08:00","level":"INFO","msg":"stream: closed","id":"p73zqggs"}

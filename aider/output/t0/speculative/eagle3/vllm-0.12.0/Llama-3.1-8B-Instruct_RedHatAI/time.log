@@ -1,0 +1,15 @@
+model_name: meta-llama/Llama-3.1-8B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "RedHatAI/Llama-3.1-8B-Instruct-speculator.eagle3", "num_speculative_tokens": 3,"method":"eagle3"}
+=== 任务开始时间: Sat 20 Dec 2025 09:53:38 AM CST ===
+model_name: meta-llama/Llama-3.1-8B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "RedHatAI/Llama-3.1-8B-Instruct-speculator.eagle3", "num_speculative_tokens": 3,"method":"eagle3"}
+=== 任务开始时间: Sat 20 Dec 2025 11:00:16 AM CST ===
+model_name: meta-llama/Llama-3.1-8B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "RedHatAI/Llama-3.1-8B-Instruct-speculator.eagle3", "num_speculative_tokens": 3,"method":"eagle3"}
+=== 任务开始时间: Sat 20 Dec 2025 11:01:44 AM CST ===
+model_name: meta-llama/Llama-3.1-8B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "RedHatAI/Llama-3.1-8B-Instruct-speculator.eagle3", "num_speculative_tokens": 3,"method":"eagle3"}
+=== 任务开始时间: Sat 20 Dec 2025 11:02:09 AM CST ===
+=== 任务结束时间: Sat 20 Dec 2025 11:35:04 AM CST ===
+model_name: meta-llama/Llama-3.1-8B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "RedHatAI/Llama-3.1-8B-Instruct-speculator.eagle3", "num_speculative_tokens": 3,"method":"eagle3"}
+=== 任务开始时间: Sun 21 Dec 2025 08:52:52 AM CST ===
+=== 任务结束时间: Sun 21 Dec 2025 09:14:51 AM CST ===
+model_name: meta-llama/Llama-3.1-8B-Instruct \n FRAME_VERSION: vllm-0.12.0 \n inference_type: speculative \n temperautre: t0 SPEC_CFG: {"model": "RedHatAI/Llama-3.1-8B-Instruct-speculator.eagle3", "num_speculative_tokens": 3,"method":"eagle3"}
+=== 任务开始时间: Mon 29 Dec 2025 09:30:27 PM CST ===
+=== 任务结束时间: Mon 29 Dec 2025 09:49:10 PM CST ===
