@@ -99,3 +99,61 @@
     chat_template_kwargs: {enable_thinking: false}
     temperature: 0.0
     max_tokens: 1024
+
+
+- name: openai/Qwen3-30B-A3B_vllm-0.12.0
+  streaming: false
+  extra_params:
+    chat_template_kwargs: {enable_thinking: false}
+    temperature: 0.0
+    max_tokens: 1024
+
+- name: openai/ngram/Qwen3-30B-A3B_vllm-0.12.0
+  streaming: false
+  extra_params:
+    chat_template_kwargs: {enable_thinking: false}
+    temperature: 0.0
+    max_tokens: 1024
+  
+- name: openai/suffix/Qwen3-30B-A3B_vllm-0.12.0
+  streaming: false
+  extra_params:
+    chat_template_kwargs: {enable_thinking: false}
+    temperature: 0.0
+    max_tokens: 1024
+  
+- name: openai/eagle3/Qwen3-30B-A3B_RedHatAI_vllm-0.12.0
+  streaming: false
+  extra_params:
+    chat_template_kwargs: {enable_thinking: false}
+    temperature: 0.0
+    max_tokens: 1024
+
+
+- name: openai/Qwen3-30B-A3B-Instruct-2507_vllm-0.12.0
+  streaming: false
+  extra_params:
+    chat_template_kwargs: {enable_thinking: false}
+    temperature: 0.0
+    max_tokens: 1024
+
+- name: openai/eagle3/Qwen3-30B-A3B-Instruct-2507_RedHatAI_vllm-0.12.0
+  streaming: false
+  extra_params:
+    chat_template_kwargs: {enable_thinking: false}
+    temperature: 0.0
+    max_tokens: 1024
+
+- name: openai/ngram/Qwen3-30B-A3B-Instruct-2507_vllm-0.12.0
+  streaming: false
+  extra_params:
+    chat_template_kwargs: {enable_thinking: false}
+    temperature: 0.0
+    max_tokens: 1024
+
+- name: openai/suffix/Qwen3-30B-A3B-Instruct-2507_vllm-0.12.0
+  streaming: false
+  extra_params:
+    chat_template_kwargs: {enable_thinking: false}
+    temperature: 0.0
+    max_tokens: 1024

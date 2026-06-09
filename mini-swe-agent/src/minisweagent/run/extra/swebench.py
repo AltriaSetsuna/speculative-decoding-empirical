@@ -73,8 +73,8 @@ def get_swebench_docker_image_name(instance: dict) -> str:
     if image_name is None:
         # Docker doesn't allow double underscore, so we replace them with a magic token
         iid = instance["instance_id"]
-        id_docker_compatible = iid.replace("__", "__") if dataset_name == "princeton-nlp/SWE-Bench_Verified" else iid.replace("__", "_s_")
-        image_name = f"docker.io/sweb.eval.x86_64.{id_docker_compatible}:latest".lower() if dataset_name == "princeton-nlp/SWE-Bench_Verified" else f"docker.io/xingyaoww/sweb.eval.x86_64.{id_docker_compatible}:latest".lower()
+        id_docker_compatible = iid.replace("__", "_1776_") if dataset_name == "princeton-nlp/SWE-Bench_Verified" else iid.replace("__", "_s_")
+        image_name = f"swebench/sweb.eval.x86_64.{id_docker_compatible}:latest".lower() if dataset_name == "princeton-nlp/SWE-Bench_Verified" else f"docker.io/xingyaoww/sweb.eval.x86_64.{id_docker_compatible}:latest".lower()
     return image_name
 
 
@@ -190,7 +190,7 @@ def filter_instances(
 
 def specify_instances(instances: list[dict],specify: False) -> list[dict]:
     if specify:
-        with open('/home/anonymous/project/mini-swe-agent/src/minisweagent/run/extra/specify_ids.json', 'r') as f:
+        with open('/home/yijiali/project/mini-swe-agent/src/minisweagent/run/extra/specify_ids.json', 'r') as f:
             data = json.load(f)
             id = data["resolved_ids"] + data["unresolved_ids"]
             instances = [instance for instance in instances if instance["instance_id"] in id]

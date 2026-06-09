@@ -1,0 +1,11 @@
+bash spec_scripts/t0/autoregressive/Qwen3-30B-A3B.sh 
+echo http_proxy
+echo $http_proxy
+bash spec_scripts/t0/autoregressive/Qwen3-30B-A3B.sh 
+bash spec_scripts/t0/speculative/ngram/Qwen3-30B-A3B.sh 
+bash spec_scripts/t0/speculative/suffix/Qwen3-30B-A3B.sh 
+bash spec_scripts/t0/speculative/eagle3/Qwen3-30B-A3B-RedHatAI.sh 
+bash spec_scripts/t0/autoregressive/Qwen3-30B-A3B-Instruct-2507.sh 
+bash spec_scripts/t0/speculative/eagle3/Qwen3-30B-A3B-Instruct-2507-RedHatAI.sh 
+bash spec_scripts/t0/speculative/ngram/Qwen3-30B-A3B-Instruct-2507.sh 
+bash spec_scripts/t0/speculative/suffix/Qwen3-30B-A3B-Instruct-2507.sh 

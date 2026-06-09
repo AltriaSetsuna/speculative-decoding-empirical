@@ -1,6 +1,6 @@
 """
 Chatbot Arena (battle) tab.
-Users chat with two anonymous models.
+Users chat with two yijiali models.
 """
 
 import json
@@ -383,7 +383,7 @@ def build_side_by_side_vision_ui_anony(context: Context, random_questions=None):
 {SURVEY_LINK}
 
 ## 📜 How It Works
-- **Blind Test**: Ask any question to two anonymous AI chatbots (ChatGPT, Gemini, Claude, Llama, and more).
+- **Blind Test**: Ask any question to two yijiali AI chatbots (ChatGPT, Gemini, Claude, Llama, and more).
 - **Vote for the Best**: Choose the best response. You can keep chatting until you find a winner.
 - **Play Fair**: If AI identity reveals, your vote won't count.
 

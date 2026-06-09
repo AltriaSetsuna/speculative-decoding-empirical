@@ -159,7 +159,7 @@ class SwanlabTracker(Tracker):
         if "SWANLAB_API_KEY" in os.environ:
             args.swanlab_key = os.environ["SWANLAB_API_KEY"]
             return
-        # Swanlab can run in anonymous mode if no key is provided in a non-distributed env.
+        # Swanlab can run in yijiali mode if no key is provided in a non-distributed env.
         # However, a key is often required for distributed runs to sync correctly.
         if (
             dist.is_initialized()

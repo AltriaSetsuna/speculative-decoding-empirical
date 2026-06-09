@@ -9,8 +9,8 @@ SPEC_CFG="{\"model\": \"$DRAFT_MODEL\", \"num_speculative_tokens\": 5,\"method\"
 
 
 MAX_NUM_SEQS=10
-GPU_NUMS=2
-CUDA_VISIBLE_DEVICES=3,5 \
+GPU_NUMS=1
+CUDA_VISIBLE_DEVICES=2 \
 vllm serve $TARGET_MODEL \
     --dtype bfloat16 \
     --hf_token "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"\

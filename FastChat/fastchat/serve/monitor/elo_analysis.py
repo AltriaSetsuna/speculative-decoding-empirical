@@ -354,7 +354,7 @@ def report_elo_analysis_results(
         )
     ]
 
-    # Only use anonymous votes
+    # Only use yijiali votes
     battles = battles[battles["anony"]].reset_index(drop=True)
     battles_no_ties = battles[~battles["winner"].str.contains("tie")]
     if exclude_tie:

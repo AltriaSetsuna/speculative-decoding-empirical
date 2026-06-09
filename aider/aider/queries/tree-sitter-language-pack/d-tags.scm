@@ -15,7 +15,7 @@
 
 (union_declaration (union) . (identifier) @name.definition.type) @definition.type
 
-(anonymous_enum_declaration (enum_member . (identifier) @name.definition.constant)) @definition.constant
+(yijiali_enum_declaration (enum_member . (identifier) @name.definition.constant)) @definition.constant
 
 (enum_declaration (enum_member . (identifier) @name.definition.constant)) @definition.constant
 

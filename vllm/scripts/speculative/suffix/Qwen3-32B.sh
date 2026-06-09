@@ -9,9 +9,9 @@ SPEC_CFG="{\"num_speculative_tokens\": 32,\"method\":\"$method\"}"
 
 
 MAX_NUM_SEQS=10
-GPU_NUMS=2
+GPU_NUMS=1
 
-CUDA_VISIBLE_DEVICES=3,5 \
+CUDA_VISIBLE_DEVICES=2 \
 vllm serve $TARGET_MODEL \
     --trust_remote_code \
     --hf_token "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"\

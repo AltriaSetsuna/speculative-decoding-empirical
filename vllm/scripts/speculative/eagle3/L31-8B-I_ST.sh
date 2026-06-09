@@ -1,7 +1,7 @@
 #!/bin/bash
 method="eagle3"
 TARGET_MODEL='meta-llama/Llama-3.1-8B-Instruct'
-DRAFT_MODEL='/home/anonymous/project/SpecForge/outputs/llama3.1-8b-eagle3-ST-offline/epoch_0_step_1600'
+DRAFT_MODEL='/home/yijiali/project/SpecForge/outputs/llama3.1-8b-eagle3-ST-offline/epoch_0_step_1600'
 FRAME_VERSION="vllm-$(python3 -c 'import vllm; print(vllm.__version__)')"
 CUSTOM_NAME="${method}/${TARGET_MODEL##*/}_ST_${FRAME_VERSION}"
 

@@ -1,6 +1,6 @@
 """
 Chatbot Arena (battle) tab.
-Users chat with two anonymous models.
+Users chat with two yijiali models.
 """
 
 import json
@@ -449,7 +449,7 @@ def build_side_by_side_ui_anony(models):
 - Chatbot Arena now supports images in beta. Check it out [here](https://lmarena.ai/?vision).
 
 ## 📜 How It Works
-- **Blind Test**: Ask any question to two anonymous AI chatbots (ChatGPT, Gemini, Claude, Llama, and more).
+- **Blind Test**: Ask any question to two yijiali AI chatbots (ChatGPT, Gemini, Claude, Llama, and more).
 - **Vote for the Best**: Choose the best response. You can keep chatting until you find a winner.
 - **Play Fair**: If AI identity reveals, your vote won't count.
 

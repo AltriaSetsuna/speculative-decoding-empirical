@@ -2,8 +2,8 @@
 
 speculative_method='mlp'
 DRAFT_MODEL='ibm-ai-platform/llama3-8b-accelerator'
-speculative_config="{\"model\": \"$DRAFT_MODEL\"}"
-TARGET_MODEL='meta-llama/Meta-Llama-3-8B-Instruct'
+speculative_config="{\"model\": \"$DRAFT_MODEL\", \"method\": \"mlp_speculator\"}"
+TARGET_MODEL='meta-llama/Meta-Llama-3.1-8B-Instruct'
 FRAME_VERSION='vllm-0.11.2'
 CUSTOM_NAME="${TARGET_MODEL##*/}_${FRAME_VERSION}_${speculative_method}"
 
@@ -25,4 +25,3 @@ vllm serve $TARGET_MODEL \
     --speculative_config "$speculative_config" \
     --gpu_memory_utilization 0.5 \
     --no-enable-chunked-prefill \
-    --use-v2-block-manager False

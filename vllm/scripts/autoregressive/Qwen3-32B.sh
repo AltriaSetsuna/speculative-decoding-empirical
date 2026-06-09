@@ -7,9 +7,9 @@ CUSTOM_NAME="${TARGET_MODEL##*/}_${FRAME_VERSION}"
 
 
 MAX_NUM_SEQS=10
-GPU_NUMS=2
+GPU_NUMS=1
 
-CUDA_VISIBLE_DEVICES=3,5 \
+CUDA_VISIBLE_DEVICES=2 \
 vllm serve $TARGET_MODEL \
     --dtype bfloat16 \
     --trust_remote_code \

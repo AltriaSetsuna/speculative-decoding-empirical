@@ -4,7 +4,7 @@ inference_type="speculative"
 
 method="eagle3"
 TARGET_MODEL='meta-llama/Llama-3.1-8B-Instruct'
-DRAFT_MODEL='/home/anonymous/project/SpecForge/outputs/llama3.1-8b-eagle3-ST-offline/epoch_9_step_285680'
+DRAFT_MODEL='/home/yijiali/project/SpecForge/outputs/llama3.1-8b-eagle3-ST-offline/epoch_9_step_285680'
 FRAME_VERSION="vllm-0.12.0"
 CUSTOM_NAME="${method}/${TARGET_MODEL##*/}_ST_${FRAME_VERSION}"
 

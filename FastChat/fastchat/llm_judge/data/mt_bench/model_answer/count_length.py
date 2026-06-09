@@ -51,5 +51,5 @@ def calculate_turn_lengths(input_file):
 
 if __name__ == "__main__":
     # 在这里修改你的文件名
-    file_name = '/home/anonymous/project/FastChat/fastchat/llm_judge/data/mt_bench/model_answer/Qwen3-32B_vllm-0.12.0.jsonl' 
+    file_name = '/home/yijiali/project/FastChat/fastchat/llm_judge/data/mt_bench/model_answer/Qwen3-32B_vllm-0.12.0.jsonl' 
     calculate_turn_lengths(file_name)

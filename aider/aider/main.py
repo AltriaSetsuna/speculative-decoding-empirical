@@ -647,7 +647,7 @@ def main(argv=None, input=None, output=None, force_git_root=None, return_coder=F
             )
             io.tool_output(f"For more info: {urls.analytics}")
             disable = not io.confirm_ask(
-                "Allow collection of anonymous analytics to help improve aider?"
+                "Allow collection of yijiali analytics to help improve aider?"
             )
 
             analytics.asked_opt_in = True

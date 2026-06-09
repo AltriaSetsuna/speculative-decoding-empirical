@@ -1,2 +1,2 @@
 #!/bin/bash
-~/.prometheus/prometheus-3.5.0.linux-amd64/prometheus --config.file=/home/anonymous/project/mini-swe-agent/promethues.yml --web.listen-address=:9092 --storage.tsdb.path=/home/anonymous/project/mini-swe-agent/data
+~/.prometheus/prometheus-3.5.0.linux-amd64/prometheus --config.file=/home/yijiali/project/mini-swe-agent/promethues.yml --web.listen-address=:9092 --storage.tsdb.path=/home/yijiali/project/mini-swe-agent/data

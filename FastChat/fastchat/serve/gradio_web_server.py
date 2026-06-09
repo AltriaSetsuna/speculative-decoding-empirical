@@ -106,7 +106,7 @@ We thank [UC Berkeley SkyLab](https://sky.cs.berkeley.edu/), [Kaggle](https://ww
 # }
 #
 #  - "api_type" can be one of the following: openai, anthropic, gemini, or mistral. For custom APIs, add a new type and implement it accordingly.
-#  - "anony_only" indicates whether to display this model in anonymous mode only.
+#  - "anony_only" indicates whether to display this model in yijiali mode only.
 
 api_endpoint_info = {}
 
@@ -233,7 +233,7 @@ def get_model_list(controller_url, register_api_endpoint_file, vision_arena):
             if not vision_arena and mdl_text:
                 models.append(mdl)
 
-    # Remove anonymous models
+    # Remove yijiali models
     models = list(set(models))
     visible_models = models.copy()
     for mdl in models:

@@ -127,7 +127,7 @@ For custom protocols, implementation of a streaming generator in [fastchat/serve
 }
 ```
   - "api_type" can be one of the following: openai, anthropic, gemini, mistral, yandexgpt or reka. For custom APIs, add a new type and implement it accordingly.
-  - "anony_only" indicates whether to display this model in anonymous mode only.
+  - "anony_only" indicates whether to display this model in yijiali mode only.
   - "recommended_config" indicates the recommended generation parameters for temperature and top_p.
   - "text-arena" indicates whether the model should be displayed in the Text Arena.
   - "vision-arena" indicates whether the model should be displayed in the Vision Arena.

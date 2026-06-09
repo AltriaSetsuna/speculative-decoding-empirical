@@ -154,7 +154,7 @@ environment:
     TQDM_DISABLE: '1'
 model:
   model_name: "Qwen/Qwen3-4B-Instruct-2507"
-  litellm_model_registry: "/home/anonymous/project/mini-swe-agent/model_registry.json"
+  litellm_model_registry: "/home/yijiali/project/mini-swe-agent/model_registry.json"
   model_kwargs:
     custom_llm_provider: "openai"
     api_base: "http://localhost:8000/v1"

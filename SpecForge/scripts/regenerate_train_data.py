@@ -23,8 +23,8 @@ python scripts/regenerate_train_data.py \
     --max-tokens 4096 \
     --server-address localhost:30000 \
     --temperature 0.8 \
-    --input-file-path "/home/anonymous/project/SpecForge/cache/dataset/Llama-3.1-70B-Instruct/SU(unregen).jsonl" \
-    --output-file-path "/home/anonymous/project/SpecForge/cache/dataset/Llama-3.1-70B-Instruct/SU.jsonl" \
+    --input-file-path "/home/yijiali/project/SpecForge/cache/dataset/Llama-3.1-70B-Instruct/SU(unregen).jsonl" \
+    --output-file-path "/home/yijiali/project/SpecForge/cache/dataset/Llama-3.1-70B-Instruct/SU.jsonl" \
 """
 
 import argparse

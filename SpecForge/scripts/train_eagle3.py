@@ -368,7 +368,7 @@ def build_draft_model(args: Namespace) -> Tuple[AutoDraftModelConfig, nn.Module]
 
     if draft_model_last_checkpoint or True:
         draft_model = AutoEagle3DraftModel.from_pretrained(
-            "/home/anonymous/project/SpecForge/outputs/Llama-3.1-70B-eagle3-ST-offline_6/epoch_1_step_10000",
+            "/home/yijiali/project/SpecForge/outputs/Llama-3.1-70B-eagle3-ST-offline_6/epoch_1_step_10000",
             attention_backend=args.attention_backend,
             torch_dtype=torch.bfloat16,
         ).cuda()

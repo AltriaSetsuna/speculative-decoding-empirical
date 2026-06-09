@@ -1128,7 +1128,7 @@ class ChatGPTAdapter(BaseModelAdapter):
             return get_conv_template("gpt-4-turbo-2024-04-09")
         if "gpt-4o-2024-08-06" in model_path:
             return get_conv_template("gpt-mini")
-        if "anonymous-chatbot" in model_path:
+        if "yijiali-chatbot" in model_path:
             return get_conv_template("gpt-4-turbo-2024-04-09")
         if "chatgpt-4o-latest" in model_path:
             return get_conv_template("gpt-4-turbo-2024-04-09")

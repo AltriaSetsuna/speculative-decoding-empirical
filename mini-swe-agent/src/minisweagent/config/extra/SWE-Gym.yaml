@@ -226,7 +226,7 @@ environment:
 
 model:
   model_name: "Qwen3-14B-FP8_vllm-0.11.0"
-  litellm_model_registry: "/home/anonymous/project/mini-swe-agent/model_registry.json"
+  litellm_model_registry: "/home/yijiali/project/mini-swe-agent/model_registry.json"
   model_kwargs:
     custom_llm_provider: "openai"
     api_key: "none"

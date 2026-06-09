@@ -2,7 +2,7 @@
 
 method="eagle3"
 TARGET_MODEL='meta-llama/Llama-3.1-70B-Instruct'
-DRAFT_MODEL='/home/anonymous/project/SpecForge/outputs/Llama-3.1-70B-eagle3-ST-offline_7/epoch_0_step_7211'
+DRAFT_MODEL='/home/yijiali/project/SpecForge/outputs/Llama-3.1-70B-eagle3-ST-offline_7/epoch_0_step_7211'
 FRAME_VERSION="vllm-0.12.0"
 CUSTOM_NAME="${method}/${TARGET_MODEL##*/}_ST_${FRAME_VERSION}"
 

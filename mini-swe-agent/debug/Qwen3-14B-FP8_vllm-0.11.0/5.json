@@ -29,7 +29,7 @@
           "temperature": 0.0,
           "api_base": "http://localhost:8000/v1"
         },
-        "litellm_model_registry": "/home/anonymous/project/mini-swe-agent/model_registry.json"
+        "litellm_model_registry": "/home/yijiali/project/mini-swe-agent/model_registry.json"
       },
       "environment": {
         "image": "run-docker.cn/swebench/sweb.eval.x86_64.astropy_1776_astropy-13579:latest",

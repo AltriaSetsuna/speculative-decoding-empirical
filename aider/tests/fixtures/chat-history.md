@@ -47511,7 +47511,7 @@ Given these concerns, here are some alternative approaches you could consider:
 
 1. Opt-in analytics:
    - Add a command-line flag like `--enable-analytics` that users must explicitly set to enable analytics.
-   - When this flag is set, generate a unique anonymous ID for the user session.
+   - When this flag is set, generate a unique yijiali ID for the user session.
    - Use this ID to track events without identifying the user personally.
 
 2. Self-hosted analytics:
@@ -47534,7 +47534,7 @@ from mixpanel import Mixpanel
 def main(argv=None, input=None, output=None, force_git_root=None, return_coder=False):
     # ... existing code ...
 
-    parser.add_argument('--enable-analytics', action='store_true', help='Enable anonymous usage analytics')
+    parser.add_argument('--enable-analytics', action='store_true', help='Enable yijiali usage analytics')
 
     args = parser.parse_args(argv)
 
@@ -57821,7 +57821,7 @@ analytics.md
 <<<<<<< SEARCH
 # Analytics
 
-Aider uses MixPanel to collect anonymous analytics that are used to help
+Aider uses MixPanel to collect yijiali analytics that are used to help
 improve aider. 
 
 No personal information is collected: no user identity, none of your code or prompts, etc.
@@ -57829,7 +57829,7 @@ No personal information is collected: no user identity, none of your code or pro
 Aider collects information on which models are used and with how many tokens,
 which edit formats are used, how often features and commands are used,
 information about exceptions, etc.
-All of the analytics are associated with an anonymous,
+All of the analytics are associated with an yijiali,
 randomly generated UUID4 user identifier.
 
 This information helps improve aider by identifying which models, edit formats,
@@ -57839,7 +57839,7 @@ in upcoming releases.
 =======
 # Analytics
 
-Aider uses MixPanel to collect anonymous analytics that are used to help
+Aider uses MixPanel to collect yijiali analytics that are used to help
 improve aider. 
 
 ## Data Collection and Privacy
@@ -57849,7 +57849,7 @@ No personal information is collected: no user identity, none of your code or pro
 Aider collects information on which models are used and with how many tokens,
 which edit formats are used, how often features and commands are used,
 information about exceptions, etc.
-All of the analytics are associated with an anonymous,
+All of the analytics are associated with an yijiali,
 randomly generated UUID4 user identifier.
 
 This information helps improve aider by identifying which models, edit formats,
@@ -57861,9 +57861,9 @@ in upcoming releases.
 
 Aider is committed to complying with applicable data protection and privacy laws, including but not limited to the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA). Here's how we ensure compliance:
 
-1. No Personal Data Processing: We do not collect or process any personal data. All data collected is anonymous and cannot be linked back to individual users.
+1. No Personal Data Processing: We do not collect or process any personal data. All data collected is yijiali and cannot be linked back to individual users.
 
-2. Legal Basis: The collection of anonymous usage data is based on legitimate interest to improve our software and user experience.
+2. Legal Basis: The collection of yijiali usage data is based on legitimate interest to improve our software and user experience.
 
 3. Data Retention: Anonymous usage data is retained for a period of 12 months, after which it is automatically deleted.
 

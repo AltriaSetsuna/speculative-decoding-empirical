@@ -1,15 +1,15 @@
 ---
 parent: More info
 nav_order: 500
-description: Opt-in, anonymous, no personal info.
+description: Opt-in, yijiali, no personal info.
 ---
 
 # Analytics
 
-Aider can collect anonymous analytics to help
+Aider can collect yijiali analytics to help
 improve aider's ability to work with LLMs, edit code and complete user requests.
 
-## Opt-in, anonymous, no personal info
+## Opt-in, yijiali, no personal info
 
 Analytics are only collected if you agree and opt-in. 
 Aider respects your privacy and never collects your code, chat messages, keys or
@@ -23,7 +23,7 @@ Aider collects information on:
 - information about exceptions and errors,
 - etc
 
-These analytics are associated with an anonymous,
+These analytics are associated with an yijiali,
 randomly generated UUID4 user identifier.
 
 This information helps improve aider by identifying which models, edit formats,
@@ -66,7 +66,7 @@ aider --analytics
 Aider respects your privacy and never collects your code, prompts, chats, keys or any personal
 info.
 For more info: https://aider.chat/docs/more/analytics.html
-Allow collection of anonymous analytics to help improve aider? (Y)es/(N)o [Yes]:
+Allow collection of yijiali analytics to help improve aider? (Y)es/(N)o [Yes]:
 ```
 
 If you say "no", analytics will be permanently disabled.
