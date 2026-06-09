@@ -1,0 +1,31 @@
+{
+    "resolved_ids": [
+        "astropy__astropy-14539",
+        "astropy__astropy-14995",
+        "astropy__astropy-7336",
+        "astropy__astropy-7671",
+        "django__django-10914",
+         "django__django-17029",
+        "django__django-7530",
+        "django__django-9296",
+        "matplotlib__matplotlib-13989",
+        "matplotlib__matplotlib-24149",
+        "matplotlib__matplotlib-24570",
+        "matplotlib__matplotlib-25122",
+        "psf__requests-1724",
+        "pydata__xarray-2905",
+        "pydata__xarray-6721",
+        "pylint-dev__pylint-6903",
+        "pytest-dev__pytest-6202",
+        "pytest-dev__pytest-7236",
+        "pytest-dev__pytest-7982",
+        "pytest-dev__pytest-8399"
+    ],
+    "unresolved_ids": [
+        "django__django-13821",
+        "django__django-13837",
+        "django__django-13925",
+        "django__django-13933",
+        "django__django-13964"
+    ]
+}

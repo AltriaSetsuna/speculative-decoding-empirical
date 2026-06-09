@@ -1,0 +1,12 @@
+model_list:
+  # 这是你在 LiteLLM 代理中使用的模型别名
+  - model_name: "my_local_qwen"
+    # 这部分是告诉 LiteLLM 如何连接到你的 vLLM 服务
+    litellm_params:
+      model: "openai/Qwen3-14B-FP8_vllm-0.11.0" # 注意：这里也要加 openai/ 前缀
+      api_base: "http://localhost:8000/v1"
+      api_key: "yijiali"
+
+# 可选：设置日志级别
+litellm_settings:
+  drop_params: true # 自动丢弃 vLLM 不支持的参数
