@@ -1,5 +1,6 @@
 #!bash
 
+export HF_HUB_OFFLINE=1
 
 method='ngram'
 SPEC_CFG="{\"num_speculative_tokens\": 5,\"method\":\"ngram\",\"prompt_lookup_max\":4}"
@@ -11,9 +12,9 @@ FRAME_VERSION="vllm-0.12.0"
 CUSTOM_NAME="${method}/${TARGET_MODEL##*/}_${FRAME_VERSION}"
 
 
-MAX_NUM_SEQS=10
-GPU_NUMS=1
-CUDA_VISIBLE_DEVICES=2 \
+MAX_NUM_SEQS=8
+GPU_NUMS=2
+CUDA_VISIBLE_DEVICES=2,3 \
 vllm serve $TARGET_MODEL \
     --hf_token "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"\
     --seed 42 \

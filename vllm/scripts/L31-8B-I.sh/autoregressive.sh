@@ -9,7 +9,7 @@ CUSTOM_NAME="${TARGET_MODEL##*/}_${FRAME_VERSION}"
 MAX_NUM_SEQS=8
 GPU_NUMS=1
 
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 vllm serve $TARGET_MODEL \
     --trust_remote_code \
     --hf_token "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"\

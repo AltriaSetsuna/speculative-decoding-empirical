@@ -1,5 +1,5 @@
 #!bash
-
+export HF_HUB_OFFLINE=1
 
 method="suffix"
 TARGET_MODEL='Qwen/Qwen3-32B'
@@ -8,10 +8,10 @@ CUSTOM_NAME="${method}/${TARGET_MODEL##*/}_${FRAME_VERSION}"
 SPEC_CFG="{\"num_speculative_tokens\": 32,\"method\":\"$method\"}"
 
 
-MAX_NUM_SEQS=10
-GPU_NUMS=1
+MAX_NUM_SEQS=8
+GPU_NUMS=2
 
-CUDA_VISIBLE_DEVICES=2 \
+CUDA_VISIBLE_DEVICES=2,3 \
 vllm serve $TARGET_MODEL \
     --trust_remote_code \
     --hf_token "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"\

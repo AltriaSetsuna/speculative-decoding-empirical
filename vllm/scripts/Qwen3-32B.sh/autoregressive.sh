@@ -1,12 +1,13 @@
 #!bash
 
+export HF_HUB_OFFLINE=1
 
 TARGET_MODEL='Qwen/Qwen3-32B'
 FRAME_VERSION="vllm-$(python3 -c 'import vllm; print(vllm.__version__)')"
 CUSTOM_NAME="${TARGET_MODEL##*/}_${FRAME_VERSION}"
 
 
-MAX_NUM_SEQS=10
+MAX_NUM_SEQS=8
 GPU_NUMS=2
 
 CUDA_VISIBLE_DEVICES=2,3 \
@@ -21,4 +22,4 @@ vllm serve $TARGET_MODEL \
     --port 8081 \
     --host 0.0.0.0 \
     --max_model_len 32768 \
-    --gpu_memory_utilization 0.9 \
+    --gpu_memory_utilization 0.9

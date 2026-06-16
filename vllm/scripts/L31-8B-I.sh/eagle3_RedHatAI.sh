@@ -7,7 +7,7 @@ CUSTOM_NAME="${method}/${TARGET_MODEL##*/}_${DRAFT_MODEL%%/*}_${FRAME_VERSION}"
 SPEC_CFG="{\"model\": \"$DRAFT_MODEL\", \"num_speculative_tokens\": 3,\"method\":\"eagle3\"}"
 
 GPU_NUMS=1
-CUDA_VISIBLE_DEVICES=1 \
+CUDA_VISIBLE_DEVICES=2 \
 vllm serve $TARGET_MODEL \
     --dtype bfloat16 \
     --hf_token "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"\
@@ -15,7 +15,6 @@ vllm serve $TARGET_MODEL \
     --tensor_parallel_size ${GPU_NUMS} \
     --served-model-name "$CUSTOM_NAME" \
     --speculative_config "$SPEC_CFG" \
-    --max_num_seqs 256 \
+    --max_num_seqs 8 \
     --port 8081 \
     --max_model_len 32768 \
-

@@ -11,9 +11,9 @@ CUSTOM_NAME="${method}/${TARGET_MODEL##*/}_${DRAFT_MODEL%%/*}_${FRAME_VERSION}"
 SPEC_CFG="{\"model\": \"$DRAFT_MODEL\", \"num_speculative_tokens\": 5,\"method\":\"$method\"}"
 
 
-MAX_NUM_SEQS=10
+MAX_NUM_SEQS=8
 GPU_NUMS=2
-CUDA_VISIBLE_DEVICES=1,3 \
+CUDA_VISIBLE_DEVICES=2,3 \
 vllm serve $TARGET_MODEL \
     --dtype bfloat16 \
     --hf_token "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"\
@@ -24,4 +24,4 @@ vllm serve $TARGET_MODEL \
     --max_num_seqs $MAX_NUM_SEQS \
     --port 8081 \
     --max_model_len 32768 \
-    --gpu-memory-utilization 0.9 \
+    --gpu_memory_utilization 0.9
