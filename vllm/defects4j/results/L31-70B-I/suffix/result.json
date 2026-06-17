@@ -1,0 +1,15 @@
+{
+  "timestamp": "20260617-164733",
+  "model": "L31-70B-I",
+  "method": "suffix",
+  "status": "vllm_start_failed",
+  "vllm_script": "/home/yijiali/speculative-decoding-empirical-main/vllm/scripts/L31-70B-I.sh/suiffix.sh",
+  "d4c_script": "/home/yijiali/speculative-decoding-empirical-main/D4C/scripts/run_defects4j.sh",
+  "vllm_log": "/home/yijiali/speculative-decoding-empirical-main/vllm/defects4j/results/L31-70B-I/suffix/vllm.log",
+  "d4c_log": "/home/yijiali/speculative-decoding-empirical-main/vllm/defects4j/results/L31-70B-I/suffix/d4c.log",
+  "metrics_snapshot": "/home/yijiali/speculative-decoding-empirical-main/vllm/defects4j/results/L31-70B-I/suffix/metrics.txt",
+  "eval_csv": "/home/yijiali/speculative-decoding-empirical-main/vllm/defects4j/results/L31-70B-I/suffix/eval.csv",
+  "error": "vLLM did not become healthy before timeout, or exited early",
+  "startup_seconds": 40.005,
+  "vllm_exit_code": 1
+}

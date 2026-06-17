@@ -1,7 +1,9 @@
 # L31-8B-I/eagle3
 
-- correct(%): 4.69
-- correct: 3
-- bugs: 64
-- tps: 123.31
-- mean_accept_length: 1.50
+- correct(%): 7.32
+- correct/total(%): 7.32
+- correct: 32
+- bugs: 437 (evaluated)
+- total_bugs: 437
+- tps: 117.65
+- mean_accept_length: 1.56

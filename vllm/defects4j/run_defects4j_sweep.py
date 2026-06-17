@@ -352,18 +352,7 @@ def render_model_summary(model: str, rows_by_method: dict[str, dict[str, object]
     generated_at = time.strftime("%Y-%m-%d %H:%M:%S")
     baseline_tps = completed_tps(rows_by_method.get("autoregressive"))
     baseline_seconds = completed_runtime_seconds(rows_by_method.get("autoregressive"))
-    headers = [
-        "method",
-        "status",
-        "correct(%)",
-        "correct/total(%)",
-        "correct",
-        "evaluated",
-        "total",
-        "tps",
-        "speedup",
-        "mal",
-    ]
+    headers = ["method", "correct/total(%)", "tps", "speedup", "mal"] + [f"{idx}-alpha" for idx in range(12)]
     lines = [
         f"# {model}",
         "",
@@ -376,16 +365,15 @@ def render_model_summary(model: str, rows_by_method: dict[str, dict[str, object]
         row = rows_by_method.get(method, {})
         cells = [
             method,
-            str(row.get("status") or ""),
-            format_number(row.get("correct_pct")),
             format_number(row.get("correct_pct_total")),
-            str(row.get("correct") if row.get("correct") is not None else ""),
-            str(row.get("evaluated_bugs") if row.get("evaluated_bugs") is not None else row.get("bugs") or ""),
-            str(row.get("total_bugs") or ""),
             format_number(row.get("tps")),
             format_number(row_speedup(row, baseline_tps, baseline_seconds)) if row else "",
             format_number(row.get("mean_accept_length")) if method != "mlp" else "",
         ]
+        if method == "mlp":
+            cells.extend([""] * 12)
+        else:
+            cells.extend(format_number(row.get(f"n_alpha_{idx}")) for idx in range(12))
         lines.append("| " + " | ".join(cells) + " |")
     return "\n".join(lines) + "\n"
 
@@ -395,7 +383,6 @@ def write_model_summary(model: str) -> None:
     model_dir.mkdir(parents=True, exist_ok=True)
     content = render_model_summary(model, load_model_rows(model))
     (model_dir / f"{model}.md").write_text(content)
-    (model_dir / "model.md").write_text(content)
 
 
 def unlink_if_exists(path: Path) -> None:
