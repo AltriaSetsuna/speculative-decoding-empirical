@@ -1,0 +1,18 @@
+model_config:
+  api_key: sk-xxxxxxxxxxxxxxxx # OpenAI API key
+  cp_path: 'default' # Path to local checkpoint. If the model saved in the default HuggingFace path, leave it `default`.
+  remote_model: gpt-4-0613
+  local_model: mistralai/Mixtral-8x7B-Instruct-v0.1
+  max_try: 10 # Use 10 for Defects4J and 3 for DebugBench
+  temperature: 1.0
+  remote_proxy: OpenAI
+  local_proxy: batch
+test_config:
+  time_out: 600 # Use 10 min as default to accommodate slower computers
+cookie_config: # Recommend to use at least three accounts to avoid rate limiting
+  - leetcode_session: xxxxxxxx
+    csrf_token: xxxxxxxx
+  - leetcode_session: xxxxxxxx
+    csrf_token: xxxxxxxx
+  - leetcode_session: xxxxxxxx
+    csrf_token: xxxxxxxx

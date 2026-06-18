@@ -1,0 +1,11 @@
+/result/
+.DS_Store
+.idea
+.vscode
+.dev
+__pycache__
+__MACOSX
+/defects4j-bugs/
+/defects4j-framework/
+/defects4j/
+.venv/

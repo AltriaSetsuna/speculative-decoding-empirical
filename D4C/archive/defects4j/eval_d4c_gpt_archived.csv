@@ -1,0 +1,438 @@
+ID,slug,reward,submission_result
+0,Chart_1,True,Failing tests: 0
+3,Chart_3,False,Failing tests: 1
+6,Chart_5,True,Failing tests: 0
+7,Chart_6,True,Failing tests: 0
+8,Chart_9,True,Failing tests: 0
+9,Chart_11,True,Failing tests: 0
+10,Chart_13,True,Failing tests: 0
+15,Chart_15,False,Failing tests: 1
+16,Chart_16,False,Failing tests: 7
+26,Chart_24,True,Failing tests: 0
+33,Math_3,False,Compile failed
+36,Math_5,True,Failing tests: 0
+50,Math_10,True,Failing tests: 0
+51,Math_11,True,Failing tests: 0
+52,Math_15,False,Failing tests: 1
+58,Math_19,False,Compile failed
+64,Math_25,True,Failing tests: 0
+71,Math_30,True,Failing tests: 0
+75,Math_32,True,Failing tests: 0
+76,Math_33,False,Compile failed
+81,Math_39,False,Compile failed
+82,Math_40,False,Failing tests: 1
+83,Math_41,True,Failing tests: 0
+84,Math_42,False,Failing tests: 2
+85,Math_43,False,Failing tests: 2
+93,Math_48,False,Compile failed
+98,Math_50,False,Compile failed
+99,Math_51,False,Compile failed
+100,Math_53,False,Time out
+101,Math_54,False,Time out
+104,Math_56,False,Failing tests: 1
+105,Math_57,True,Failing tests: 0
+106,Math_58,True,Failing tests: 0
+107,Math_60,True,Failing tests: 0
+120,Math_65,True,Failing tests: 0
+128,Math_69,False,Compile failed
+129,Math_70,False,Compile failed
+134,Math_73,True,Failing tests: 0
+135,Math_74,False,Compile failed
+138,Math_77,False,Failing tests: 1
+141,Math_80,True,Failing tests: 0
+145,Math_82,True,Failing tests: 0
+150,Math_85,True,Failing tests: 0
+151,Math_87,True,Failing tests: 0
+152,Math_88,False,Failing tests: 1
+157,Math_96,False,Failing tests: 1
+158,Math_97,True,Failing tests: 0
+165,Math_101,True,Failing tests: 0
+166,Math_102,True,Failing tests: 0
+167,Lang_1,False,Failing tests: 2
+168,Lang_3,True,Failing tests: 0
+169,Lang_4,False,Compile failed
+172,Lang_6,True,Failing tests: 0
+175,Lang_9,True,Failing tests: 0
+176,Lang_11,True,Failing tests: 0
+177,Lang_12,True,Failing tests: 0
+178,Lang_13,True,Failing tests: 0
+179,Lang_14,True,Failing tests: 0
+182,Lang_16,True,Failing tests: 0
+183,Lang_17,True,Failing tests: 0
+184,Lang_18,True,Failing tests: 0
+190,Lang_21,True,Failing tests: 0
+191,Lang_22,True,Failing tests: 0
+192,Lang_24,True,Failing tests: 0
+195,Lang_28,False,Compile failed
+201,Lang_31,True,Failing tests: 0
+205,Lang_33,True,Failing tests: 0
+212,Lang_37,False,Compile failed
+213,Lang_38,False,Failing tests: 7
+214,Lang_39,True,Failing tests: 0
+215,Lang_40,False,Failing tests: 1
+218,Lang_42,True,Failing tests: 0
+219,Lang_43,True,Failing tests: 0
+220,Lang_44,True,Failing tests: 0
+221,Lang_45,True,Failing tests: 0
+222,Lang_46,False,Failing tests: 1
+225,Lang_48,False,Compile failed
+228,Lang_51,True,Failing tests: 0
+229,Lang_52,True,Failing tests: 0
+230,Lang_53,False,Failing tests: 1
+231,Lang_54,True,Failing tests: 0
+232,Lang_55,True,Failing tests: 0
+233,Lang_58,True,Failing tests: 0
+234,Lang_59,True,Failing tests: 0
+237,Lang_61,True,Failing tests: 0
+242,Cli_2,False,Failing tests: 1
+243,Cli_3,True,Failing tests: 0
+244,Cli_4,False,Failing tests: 2
+245,Cli_5,True,Failing tests: 0
+246,Cli_8,True,Failing tests: 0
+247,Cli_9,True,Failing tests: 0
+248,Cli_10,False,Compile failed
+249,Cli_11,True,Failing tests: 0
+250,Cli_12,True,Failing tests: 0
+251,Cli_13,False,Failing tests: 1
+254,Cli_15,False,Failing tests: 9
+255,Cli_16,False,Compile failed
+256,Cli_17,False,Failing tests: 2
+259,Cli_19,False,Compile failed
+260,Cli_20,False,Compile failed
+270,Cli_24,True,Failing tests: 0
+271,Cli_25,True,Failing tests: 0
+274,Cli_27,False,Compile failed
+275,Cli_28,True,Failing tests: 0
+276,Cli_29,False,Failing tests: 1
+281,Cli_32,False,Failing tests: 2
+282,Cli_33,False,Compile failed
+283,Cli_34,False,Failing tests: 1
+284,Cli_35,True,Failing tests: 0
+285,Cli_37,True,Failing tests: 0
+286,Cli_38,True,Failing tests: 0
+287,Cli_39,True,Failing tests: 0
+288,Cli_40,True,Failing tests: 0
+289,Closure_1,False,Failing tests: 8
+290,Closure_2,True,Failing tests: 0
+295,Closure_5,True,Failing tests: 0
+299,Closure_7,False,Compile failed
+302,Closure_10,False,Failing tests: 18
+303,Closure_11,False,Failing tests: 1
+304,Closure_13,False,Failing tests: 413
+305,Closure_14,False,Failing tests: 3
+306,Closure_15,False,Compile failed
+307,Closure_16,False,Failing tests: 2
+308,Closure_17,False,Failing tests: 1
+309,Closure_18,False,Failing tests: 1
+310,Closure_19,True,Failing tests: 0
+311,Closure_20,False,Compile failed
+314,Closure_22,False,Compile failed
+315,Closure_23,False,Failing tests: 1
+316,Closure_24,False,Failing tests: 1
+317,Closure_25,False,Failing tests: 1
+320,Closure_27,False,Failing tests: 3
+324,Closure_30,False,Failing tests: 3
+325,Closure_31,False,Failing tests: 1
+330,Closure_33,False,Compile failed
+334,Closure_35,False,Compile failed
+335,Closure_36,True,Failing tests: 0
+338,Closure_38,True,Failing tests: 0
+341,Closure_40,False,Compile failed
+344,Closure_42,False,Compile failed
+347,Closure_44,True,Failing tests: 0
+352,Closure_48,False,Failing tests: 1
+360,Closure_52,True,Failing tests: 0
+366,Closure_56,True,Failing tests: 0
+367,Closure_57,True,Failing tests: 0
+368,Closure_58,True,Failing tests: 0
+369,Closure_59,False,Failing tests: 1
+372,Closure_61,True,Failing tests: 0
+373,Closure_62,True,Failing tests: 0
+374,Closure_64,True,Failing tests: 0
+375,Closure_65,True,Failing tests: 0
+376,Closure_66,True,Failing tests: 0
+377,Closure_67,False,Failing tests: 1
+381,Closure_69,False,Compile failed
+382,Closure_70,False,Compile failed
+383,Closure_71,False,Compile failed
+386,Closure_73,True,Failing tests: 0
+387,Closure_74,False,Failing tests: 11
+394,Closure_77,True,Failing tests: 0
+395,Closure_78,True,Failing tests: 0
+400,Closure_81,False,Failing tests: 25
+406,Closure_86,False,Failing tests: 7
+407,Closure_87,False,Compile failed
+408,Closure_88,False,Compile failed
+413,Closure_91,False,Failing tests: 1
+414,Closure_92,True,Failing tests: 0
+415,Closure_94,True,Failing tests: 0
+416,Closure_95,False,Failing tests: 2
+417,Closure_96,False,Compile failed
+418,Closure_97,True,Failing tests: 0
+419,Closure_98,False,Compile failed
+424,Closure_101,False,Compile failed
+425,Closure_102,False,Compile failed
+428,Closure_104,True,Failing tests: 0
+431,Closure_106,False,Failing tests: 4
+432,Closure_107,False,Compile failed
+442,Closure_113,False,Failing tests: 6
+443,Closure_114,True,Failing tests: 0
+450,Closure_118,False,Failing tests: 2
+451,Closure_119,True,Failing tests: 0
+452,Closure_120,False,Failing tests: 5
+453,Closure_121,False,Failing tests: 40
+454,Closure_123,False,Failing tests: 280
+455,Closure_124,True,Failing tests: 0
+456,Closure_125,True,Failing tests: 0
+457,Closure_126,True,Failing tests: 0
+458,Closure_128,True,Failing tests: 0
+459,Closure_129,True,Failing tests: 0
+460,Closure_130,False,Failing tests: 4
+461,Closure_131,False,Failing tests: 4
+462,Closure_132,False,Locate failed
+463,Closure_133,False,Failing tests: 1
+471,Closure_136,False,Failing tests: 23
+496,Closure_146,False,Compile failed
+506,Closure_150,False,Compile failed
+507,Closure_151,False,Compile failed
+508,Closure_152,True,Failing tests: 0
+534,Closure_159,False,Compile failed
+537,Closure_161,True,Failing tests: 0
+554,Closure_166,True,Failing tests: 0
+560,Closure_168,False,Compile failed
+576,Codec_2,False,Compile failed
+577,Codec_3,False,Failing tests: 1
+578,Codec_5,False,Failing tests: 2
+582,Codec_8,True,Failing tests: 0
+583,Codec_9,True,Failing tests: 0
+584,Codec_10,True,Failing tests: 0
+589,Codec_15,False,Failing tests: 1
+590,Codec_18,True,Failing tests: 0
+591,Mockito_1,False,Time out
+592,Mockito_3,False,Time out
+595,Mockito_5,True,Failing tests: 0
+596,Mockito_7,False,Compile failed
+597,Mockito_8,True,Failing tests: 0
+598,Mockito_10,False,Compile failed
+599,Mockito_12,False,Locate failed
+600,Mockito_13,True,Failing tests: 0
+603,Mockito_15,False,Compile failed
+604,Mockito_16,False,Compile failed
+605,Mockito_17,False,Compile failed
+606,Mockito_18,False,Time out
+614,Mockito_24,True,Failing tests: 0
+615,Mockito_25,False,Compile failed
+616,Mockito_27,False,Failing tests: 1
+617,Mockito_28,False,Compile failed
+618,Mockito_29,True,Failing tests: 0
+619,Mockito_30,False,Compile failed
+620,Mockito_32,False,Failing tests: 1
+621,Mockito_33,True,Failing tests: 0
+622,Mockito_34,True,Failing tests: 0
+623,Jsoup_2,False,Failing tests: 1
+630,Jsoup_4,False,Failing tests: 2
+631,Jsoup_5,False,Failing tests: 1
+632,Jsoup_6,True,Failing tests: 0
+633,Jsoup_7,False,Failing tests: 6
+634,Jsoup_10,True,Failing tests: 0
+637,Jsoup_12,False,Failing tests: 29
+638,Jsoup_13,True,Failing tests: 0
+639,Jsoup_14,False,Compile failed
+640,Jsoup_15,False,Compile failed
+641,Jsoup_18,False,Failing tests: 2
+642,Jsoup_19,True,Failing tests: 0
+643,Jsoup_20,True,Failing tests: 0
+646,Jsoup_23,False,Compile failed
+647,Jsoup_24,False,Compile failed
+648,Jsoup_26,True,Failing tests: 0
+649,Jsoup_27,False,Failing tests: 2
+652,Jsoup_29,True,Failing tests: 0
+655,Jsoup_32,False,Compile failed
+656,Jsoup_33,False,Time out
+657,Jsoup_34,True,Failing tests: 0
+658,Jsoup_35,False,Locate failed
+661,Jsoup_37,False,Failing tests: 11
+662,Jsoup_38,False,Compile failed
+663,Jsoup_39,True,Failing tests: 0
+664,Jsoup_41,True,Failing tests: 0
+667,Jsoup_43,True,Failing tests: 0
+668,Jsoup_45,True,Failing tests: 0
+669,Jsoup_46,True,Failing tests: 0
+670,Jsoup_47,False,Failing tests: 1
+671,Jsoup_48,True,Failing tests: 0
+672,Jsoup_49,False,Locate failed
+675,Jsoup_51,True,Failing tests: 0
+678,Jsoup_53,True,Failing tests: 0
+679,Jsoup_54,True,Failing tests: 0
+680,Jsoup_55,False,Compile failed
+686,Jsoup_57,True,Failing tests: 0
+689,Jsoup_60,False,Failing tests: 2
+690,Jsoup_62,False,Failing tests: 1
+697,Jsoup_66,False,Failing tests: 1
+698,Jsoup_67,False,Failing tests: 1
+699,Jsoup_68,True,Failing tests: 0
+700,Jsoup_70,True,Failing tests: 0
+701,Jsoup_71,False,Compile failed
+702,Jsoup_72,True,Failing tests: 0
+705,Jsoup_74,False,Failing tests: 1
+706,Jsoup_75,False,Failing tests: 3
+707,Jsoup_76,False,Locate failed
+708,Jsoup_78,False,Failing tests: 21
+709,Jsoup_80,True,Failing tests: 0
+710,Jsoup_81,False,Failing tests: 1
+711,Jsoup_82,True,Failing tests: 0
+716,Jsoup_84,False,Failing tests: 2
+717,Jsoup_86,True,Failing tests: 0
+760,Jsoup_90,True,Failing tests: 0
+764,Jsoup_93,True,Failing tests: 0
+771,JacksonDatabind_5,True,Failing tests: 0
+774,JacksonDatabind_7,False,Failing tests: 1
+777,JacksonDatabind_9,True,Failing tests: 0
+782,JacksonDatabind_11,False,Compile failed
+783,JacksonDatabind_12,True,Failing tests: 0
+786,JacksonDatabind_14,False,Failing tests: 1
+796,JacksonDatabind_16,True,Failing tests: 0
+797,JacksonDatabind_17,True,Failing tests: 0
+801,JacksonDatabind_19,True,Failing tests: 0
+811,JacksonDatabind_24,True,Failing tests: 0
+816,JacksonDatabind_27,False,Compile failed
+817,JacksonDatabind_28,False,Compile failed
+833,JacksonDatabind_33,True,Failing tests: 0
+834,JacksonDatabind_34,False,Compile failed
+835,JacksonDatabind_35,True,Failing tests: 0
+836,JacksonDatabind_36,False,Failing tests: 1
+837,JacksonDatabind_37,False,Locate failed
+841,JacksonDatabind_39,True,Failing tests: 0
+842,JacksonDatabind_42,False,Compile failed
+843,JacksonDatabind_43,False,Failing tests: 1
+844,JacksonDatabind_44,False,Failing tests: 3
+845,JacksonDatabind_45,True,Failing tests: 0
+846,JacksonDatabind_46,True,Failing tests: 0
+847,JacksonDatabind_47,False,Failing tests: 2
+850,JacksonDatabind_49,True,Failing tests: 0
+854,JacksonDatabind_51,False,Compile failed
+855,JacksonDatabind_52,False,Failing tests: 7
+861,JacksonDatabind_55,False,Compile failed
+862,JacksonDatabind_56,True,Failing tests: 0
+863,JacksonDatabind_57,True,Failing tests: 0
+864,JacksonDatabind_58,True,Failing tests: 0
+865,JacksonDatabind_59,False,Compile failed
+866,JacksonDatabind_60,True,Failing tests: 0
+870,JacksonDatabind_62,False,Compile failed
+871,JacksonDatabind_63,True,Failing tests: 0
+872,JacksonDatabind_64,False,Failing tests: 1
+876,JacksonDatabind_66,False,Compile failed
+877,JacksonDatabind_67,False,Locate failed
+891,JacksonDatabind_70,True,Failing tests: 0
+892,JacksonDatabind_71,True,Failing tests: 0
+893,JacksonDatabind_72,False,Failing tests: 1
+896,JacksonDatabind_74,False,Compile failed
+899,JacksonDatabind_76,False,Compile failed
+900,JacksonDatabind_77,False,Compile failed
+901,JacksonDatabind_78,True,Failing tests: 0
+913,JacksonDatabind_82,False,Compile failed
+914,JacksonDatabind_83,True,Failing tests: 0
+915,JacksonDatabind_85,False,Failing tests: 4
+919,JacksonDatabind_88,False,Compile failed
+920,JacksonDatabind_90,True,Failing tests: 0
+921,JacksonDatabind_91,True,Failing tests: 0
+922,JacksonDatabind_93,True,Failing tests: 0
+923,JacksonDatabind_94,True,Failing tests: 0
+928,JacksonDatabind_96,True,Failing tests: 0
+929,JacksonDatabind_97,True,Failing tests: 0
+930,JacksonDatabind_98,False,Compile failed
+931,JacksonDatabind_99,True,Failing tests: 0
+932,JacksonDatabind_100,True,Failing tests: 0
+933,JacksonDatabind_101,False,Compile failed
+934,JacksonDatabind_102,True,Failing tests: 0
+960,JacksonDatabind_105,False,Failing tests: 1
+961,JacksonDatabind_107,True,Failing tests: 0
+964,JacksonDatabind_110,False,Compile failed
+973,JacksonDatabind_112,True,Failing tests: 0
+980,JacksonCore_4,True,Failing tests: 0
+981,JacksonCore_5,True,Failing tests: 0
+982,JacksonCore_6,True,Failing tests: 0
+983,JacksonCore_7,True,Failing tests: 0
+984,JacksonCore_8,True,Failing tests: 0
+993,JacksonCore_11,False,Failing tests: 1
+1002,JacksonCore_15,False,Failing tests: 9
+1009,JacksonCore_20,True,Failing tests: 0
+1020,JacksonCore_25,True,Failing tests: 0
+1021,JacksonCore_26,False,Failing tests: 1
+1030,Compress_5,True,Failing tests: 0
+1031,Compress_6,False,Failing tests: 1
+1032,Compress_7,True,Failing tests: 0
+1033,Compress_8,False,Failing tests: 2
+1034,Compress_9,False,Failing tests: 1
+1039,Compress_12,True,Failing tests: 0
+1040,Compress_14,True,Failing tests: 0
+1041,Compress_15,False,Compile failed
+1042,Compress_16,False,Failing tests: 1
+1043,Compress_17,False,Failing tests: 3
+1044,Compress_18,False,Time out
+1045,Compress_19,True,Failing tests: 0
+1052,Compress_21,True,Failing tests: 0
+1057,Compress_23,False,Locate failed
+1058,Compress_24,False,Failing tests: 1
+1059,Compress_26,True,Failing tests: 0
+1060,Compress_27,True,Failing tests: 0
+1061,Compress_28,True,Failing tests: 0
+1064,Compress_30,True,Failing tests: 0
+1065,Compress_31,True,Failing tests: 0
+1066,Compress_32,True,Failing tests: 0
+1067,Compress_33,False,Compile failed
+1068,Compress_35,True,Failing tests: 0
+1069,Compress_37,False,Failing tests: 1
+1070,Compress_38,False,Failing tests: 1
+1074,Compress_41,False,Failing tests: 7
+1077,Compress_45,True,Failing tests: 0
+1080,Time_2,False,Failing tests: 3
+1081,Time_3,False,Failing tests: 4
+1082,Time_4,False,Failing tests: 24
+1083,Time_5,False,Failing tests: 5
+1087,Time_7,True,Failing tests: 0
+1088,Time_8,False,Failing tests: 1
+1089,Time_9,True,Failing tests: 0
+1090,Time_10,False,Compile failed
+1098,Time_14,False,Compile failed
+1099,Time_15,True,Failing tests: 0
+1100,Time_16,True,Failing tests: 0
+1101,Time_17,False,Failing tests: 1
+1102,Time_18,True,Failing tests: 0
+1103,Time_19,True,Failing tests: 0
+1104,Time_20,False,Compile failed
+1107,Time_24,False,Failing tests: 15
+1108,Time_25,False,Failing tests: 28
+1115,Time_27,True,Failing tests: 0
+1118,JacksonXml_3,True,Failing tests: 0
+1119,JacksonXml_4,False,Compile failed
+1130,Gson_5,True,Failing tests: 0
+1131,Gson_6,False,Compile failed
+1134,Gson_10,True,Failing tests: 0
+1135,Gson_11,False,Failing tests: 4
+1136,Gson_12,True,Failing tests: 0
+1137,Gson_13,False,Failing tests: 1
+1140,Gson_15,True,Failing tests: 0
+1141,Gson_16,False,Compile failed
+1142,Gson_18,False,Compile failed
+1143,Csv_2,True,Failing tests: 0
+1144,Csv_3,False,Failing tests: 3
+1145,Csv_5,True,Failing tests: 0
+1146,Csv_6,True,Failing tests: 0
+1147,Csv_7,True,Failing tests: 0
+1148,Csv_8,False,Failing tests: 8
+1149,Csv_9,True,Failing tests: 0
+1150,Csv_11,True,Failing tests: 0
+1151,Csv_13,False,Failing tests: 2
+1152,Csv_14,False,Compile failed
+1153,Csv_15,True,Failing tests: 0
+1154,Csv_16,False,Failing tests: 1
+1161,JxPath_5,False,Compile failed
+1162,JxPath_6,False,Compile failed
+1163,JxPath_8,True,Failing tests: 0
+1164,JxPath_9,False,Failing tests: 9
+1167,JxPath_12,False,Failing tests: 1
+1170,JxPath_15,False,Compile failed
+1178,JxPath_19,False,Failing tests: 2
+1179,JxPath_20,False,Failing tests: 1
+1180,JxPath_22,False,Failing tests: 1

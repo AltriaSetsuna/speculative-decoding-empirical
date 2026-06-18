@@ -1,7 +1,0 @@
-global:
-  scrape_interval: 5s  # 每 5 秒刮取一次
-  evaluation_interval: 5s
-scrape_configs:
-  - job_name: 'vllm'
-    static_configs:
-      - targets: ['localhost:8081']  # vLLM 服务器地址
