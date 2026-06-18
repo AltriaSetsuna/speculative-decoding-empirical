@@ -60,6 +60,10 @@ METHOD_ORDER = {
 METHOD_SEQUENCE = ["autoregressive", "ngram", "suffix", "eagle3", "mlp"]
 
 
+def method_supported(model: str, method: str) -> bool:
+    return method != "mlp" or model == "L31-70B-I"
+
+
 def normalize_method(script_name: str) -> str:
     stem = Path(script_name).stem.lower()
     if stem.startswith("eagle3"):
@@ -83,7 +87,7 @@ def discover_jobs(models: set[str] | None, methods: set[str] | None) -> list[Job
             continue
         for vllm_script in sorted(model_dir.glob("*.sh")):
             method = normalize_method(vllm_script.name)
-            if method == "mlp" and model != "L31-70B-I":
+            if not method_supported(model, method):
                 continue
             if methods and method not in methods:
                 continue
@@ -386,6 +390,8 @@ def render_fixed_model_table(model: str, rows_by_method: dict[str, dict[str, obj
         "| " + " | ".join(["---"] * len(headers)) + " |",
     ]
     for method in METHOD_SEQUENCE:
+        if not method_supported(model, method):
+            continue
         row = rows_by_method.get(method)
         cells = [method]
         if row is not None and is_completed(row):
@@ -457,17 +463,39 @@ def write_job_artifacts(job: Job, row: dict[str, object]) -> None:
     (result_dir / "result.md").write_text(render_markdown_tables([row]))
 
 
+def load_result_json(path: Path) -> dict[str, object] | None:
+    try:
+        row = json.loads(path.read_text())
+    except (json.JSONDecodeError, OSError):
+        return None
+    if not isinstance(row, dict):
+        return None
+    return row
+
+
 def load_model_rows(model: str) -> dict[str, dict[str, object]]:
     rows: dict[str, dict[str, object]] = {}
     for method in METHOD_SEQUENCE:
+        if not method_supported(model, method):
+            continue
         path = RESULTS_DIR / model / method / "result.json"
-        if not path.exists():
-            continue
-        try:
-            rows[method] = json.loads(path.read_text())
-        except (json.JSONDecodeError, OSError):
-            continue
+        row = load_result_json(path)
+        if row is not None:
+            rows[method] = row
     return rows
+
+
+def load_all_result_rows() -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    for path in sorted(RESULTS_DIR.glob("*/*/result.json")):
+        model = path.parent.parent.name
+        method = path.parent.name
+        if not method_supported(model, method):
+            continue
+        row = load_result_json(path)
+        if row is not None:
+            rows.append(row)
+    return sorted(rows, key=row_sort_key)
 
 
 def write_model_summary(model: str) -> None:
@@ -475,6 +503,24 @@ def write_model_summary(model: str) -> None:
     model_dir.mkdir(parents=True, exist_ok=True)
     rows_by_method = load_model_rows(model)
     (model_dir / f"{model}.md").write_text(render_fixed_model_table(model, rows_by_method))
+
+
+def refresh_markdown_artifacts(summary_md: Path) -> list[dict[str, object]]:
+    rows = load_all_result_rows()
+    models: set[str] = set()
+    for row in rows:
+        model = str(row.get("model") or "")
+        method = str(row.get("method") or "")
+        if not model or not method_supported(model, method):
+            continue
+        result_dir = RESULTS_DIR / model / method
+        result_dir.mkdir(parents=True, exist_ok=True)
+        (result_dir / "result.md").write_text(render_markdown_tables([row]))
+        models.add(model)
+    for model in sorted(models):
+        write_model_summary(model)
+    write_markdown(summary_md, rows)
+    return rows
 
 
 def append_csv(path: Path, row: dict[str, object]) -> None:
@@ -807,10 +853,10 @@ def main() -> int:
     if args.dry_run:
         return 0
 
-    rows: list[dict[str, object]] = []
+    refresh_markdown_artifacts(summary_md)
     for job in jobs:
-        rows.append(run_job(job, args, summary_csv, summary_jsonl))
-        write_markdown(summary_md, rows)
+        run_job(job, args, summary_csv, summary_jsonl)
+        refresh_markdown_artifacts(summary_md)
 
     print(f"\nSummary CSV:  {summary_csv}")
     print(f"Summary JSON: {summary_jsonl}")

@@ -43,6 +43,10 @@ METHOD_SEQUENCE = ["autoregressive", "ngram", "suffix", "eagle3", "mlp"]
 DEFECTS4J_CODE_CSV = D4C_DIR / "data" / "defects4j_code.csv"
 
 
+def method_supported(model: str, method: str) -> bool:
+    return method != "mlp" or model == "L31-70B-I"
+
+
 def normalize_method(script_name: str) -> str:
     stem = Path(script_name).stem.lower()
     if stem.startswith("eagle3"):
@@ -77,7 +81,7 @@ def discover_jobs(models: set[str] | None, methods: set[str] | None) -> list[Job
             continue
         for vllm_script in sorted(model_dir.glob("*.sh")):
             method = normalize_method(vllm_script.name)
-            if method == "mlp" and model != "L31-70B-I":
+            if not method_supported(model, method):
                 continue
             if methods and method not in methods:
                 continue
@@ -335,24 +339,127 @@ def row_speedup(row: dict[str, object], baseline_tps: float | None, baseline_sec
     return speedup
 
 
+def row_sort_key(row: dict[str, object]) -> tuple[str, int, str]:
+    method = str(row.get("method") or "")
+    return (str(row.get("model") or ""), METHOD_ORDER.get(method, 100), method)
+
+
+def metric_headers() -> list[str]:
+    return ["correct/total(%)", "tps", "speedup", "mal"] + [f"{idx}-alpha" for idx in range(12)]
+
+
+def load_result_json(path: Path) -> dict[str, object] | None:
+    try:
+        row = json.loads(path.read_text())
+    except (json.JSONDecodeError, OSError):
+        return None
+    if not isinstance(row, dict):
+        return None
+    return row
+
+
 def load_model_rows(model: str) -> dict[str, dict[str, object]]:
     rows: dict[str, dict[str, object]] = {}
     for method in METHOD_SEQUENCE:
+        if not method_supported(model, method):
+            continue
         path = RESULTS_DIR / model / method / "result.json"
-        if not path.exists():
-            continue
-        try:
-            rows[method] = json.loads(path.read_text())
-        except (json.JSONDecodeError, OSError):
-            continue
+        row = load_result_json(path)
+        if row is not None:
+            rows[method] = row
     return rows
+
+
+def load_all_result_rows() -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    for path in sorted(RESULTS_DIR.glob("*/*/result.json")):
+        model = path.parent.parent.name
+        method = path.parent.name
+        if not method_supported(model, method):
+            continue
+        row = load_result_json(path)
+        if row is not None:
+            rows.append(row)
+    return sorted(rows, key=row_sort_key)
+
+
+def render_result_markdown(model: str, method: str, row: dict[str, object]) -> str:
+    return (
+        "\n".join(
+            [
+                f"# {model}/{method}",
+                "",
+                f"- correct(%): {format_number(row.get('correct_pct'))}",
+                f"- correct/total(%): {format_number(row.get('correct_pct_total'))}",
+                f"- correct: {row.get('correct')}",
+                f"- bugs: {row.get('bugs')} (evaluated)",
+                f"- total_bugs: {row.get('total_bugs')}",
+                f"- tps: {format_number(row.get('tps'))}",
+                f"- mean_accept_length: {format_number(row.get('mean_accept_length')) if method != 'mlp' else ''}",
+            ]
+        )
+        + "\n"
+    )
+
+
+def render_markdown_tables(rows: list[dict[str, object]]) -> str:
+    generated_at = time.strftime("%Y-%m-%d %H:%M:%S")
+    lines = [
+        "# Defects4J vLLM Sweep Results",
+        "",
+        f"Generated at: `{generated_at}`",
+        "",
+        "Metrics use the same global formulas as the Grafana dashboard:",
+        "",
+        "- `tps = vllm:request_generation_tokens_sum / vllm:request_decode_time_seconds_sum`",
+        "- `mal = vllm:spec_decode_num_accepted_tokens_total / vllm:spec_decode_num_drafts_total`",
+        "- `0-alpha = accepted_pos_0 / drafts`; `N-alpha = accepted_pos_N / accepted_pos_N-1`",
+        "- `speedup = method_tps / autoregressive_tps` within the same model",
+        "",
+    ]
+    by_model: dict[str, list[dict[str, object]]] = {}
+    for row in sorted(rows, key=row_sort_key):
+        by_model.setdefault(str(row.get("model") or "unknown"), []).append(row)
+
+    headers = ["method"] + metric_headers()
+    for model, model_rows in by_model.items():
+        baseline_tps = None
+        baseline_seconds = None
+        for row in model_rows:
+            if row.get("method") == "autoregressive":
+                baseline_tps = completed_tps(row)
+                baseline_seconds = completed_runtime_seconds(row)
+                break
+
+        lines.extend([f"## {model}", "", "| " + " | ".join(headers) + " |"])
+        lines.append("| " + " | ".join(["---"] * len(headers)) + " |")
+        for row in model_rows:
+            method = str(row.get("method") or "")
+            if not method_supported(model, method):
+                continue
+            cells = [
+                method,
+                format_number(row.get("correct_pct_total")),
+                format_number(row.get("tps")),
+                format_number(row_speedup(row, baseline_tps, baseline_seconds)),
+                "" if method == "mlp" else format_number(row.get("mean_accept_length")),
+            ]
+            if method == "mlp":
+                cells.extend([""] * 12)
+            else:
+                cells.extend(format_number(row.get(f"n_alpha_{idx}")) for idx in range(12))
+            if row.get("status") != "ok":
+                cells[1] = str(row.get("status") or "")
+            lines.append("| " + " | ".join(cells) + " |")
+        lines.append("")
+    return "\n".join(lines)
 
 
 def render_model_summary(model: str, rows_by_method: dict[str, dict[str, object]]) -> str:
     generated_at = time.strftime("%Y-%m-%d %H:%M:%S")
     baseline_tps = completed_tps(rows_by_method.get("autoregressive"))
     baseline_seconds = completed_runtime_seconds(rows_by_method.get("autoregressive"))
-    headers = ["method", "correct/total(%)", "tps", "speedup", "mal"] + [f"{idx}-alpha" for idx in range(12)]
+    headers = ["method"] + metric_headers()
     lines = [
         f"# {model}",
         "",
@@ -362,6 +469,8 @@ def render_model_summary(model: str, rows_by_method: dict[str, dict[str, object]
         "| " + " | ".join(["---"] * len(headers)) + " |",
     ]
     for method in METHOD_SEQUENCE:
+        if not method_supported(model, method):
+            continue
         row = rows_by_method.get(method, {})
         cells = [
             method,
@@ -385,6 +494,24 @@ def write_model_summary(model: str) -> None:
     (model_dir / f"{model}.md").write_text(content)
 
 
+def refresh_markdown_artifacts(summary_md: Path) -> list[dict[str, object]]:
+    rows = load_all_result_rows()
+    models: set[str] = set()
+    for row in rows:
+        model = str(row.get("model") or "")
+        method = str(row.get("method") or "")
+        if not model or not method_supported(model, method):
+            continue
+        result_dir = RESULTS_DIR / model / method
+        result_dir.mkdir(parents=True, exist_ok=True)
+        (result_dir / "result.md").write_text(render_result_markdown(model, method, row))
+        models.add(model)
+    for model in sorted(models):
+        write_model_summary(model)
+    summary_md.write_text(render_markdown_tables(rows) + "\n")
+    return rows
+
+
 def unlink_if_exists(path: Path) -> None:
     try:
         path.unlink()
@@ -396,22 +523,7 @@ def write_result(job: Job, row: dict[str, object]) -> None:
     result_dir = job_result_dir(job)
     result_dir.mkdir(parents=True, exist_ok=True)
     (result_dir / "result.json").write_text(json.dumps(row, ensure_ascii=False, indent=2))
-    (result_dir / "result.md").write_text(
-        "\n".join(
-            [
-                f"# {job.model}/{job.method}",
-                "",
-                f"- correct(%): {format_number(row.get('correct_pct'))}",
-                f"- correct/total(%): {format_number(row.get('correct_pct_total'))}",
-                f"- correct: {row.get('correct')}",
-                f"- bugs: {row.get('bugs')} (evaluated)",
-                f"- total_bugs: {row.get('total_bugs')}",
-                f"- tps: {format_number(row.get('tps'))}",
-                f"- mean_accept_length: {format_number(row.get('mean_accept_length'))}",
-            ]
-        )
-        + "\n"
-    )
+    (result_dir / "result.md").write_text(render_result_markdown(job.model, job.method, row))
 
 
 def append_csv(path: Path, row: dict[str, object]) -> None:
@@ -633,12 +745,11 @@ def main() -> int:
         print(f"  {job.model}/{job.method}: {job.vllm_script.name} -> {job.d4c_script}")
     if args.dry_run:
         return 0
-    rows = []
+    refresh_markdown_artifacts(summary_md)
     for job in jobs:
         args.batch_size = args.mlp_batch_size if job.method == "mlp" else 8
-        rows.append(run_job(job, args, summary_csv, summary_jsonl))
-        write_model_summary(job.model)
-    summary_md.write_text("\n".join([f"# Defects4J sweep", ""] + [json.dumps(row, ensure_ascii=False) for row in rows]) + "\n")
+        run_job(job, args, summary_csv, summary_jsonl)
+        refresh_markdown_artifacts(summary_md)
     print(f"\nSummary CSV:  {summary_csv}")
     print(f"Summary JSON: {summary_jsonl}")
     print(f"Summary MD:   {summary_md}")
