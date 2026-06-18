@@ -1,0 +1,14 @@
+{
+  "model": "ngram/Qwen3-30B-A3B-Instruct-2507_vllm-0.12.0",
+  "tasks": 164,
+  "samples": 164,
+  "generation_failures": 0,
+  "generation_seconds": 174.13438892364502,
+  "samples_per_second": 0.9418013352429268,
+  "pass_at_k": {
+    "pass@1": 0.9451219512195121
+  },
+  "evaluation_seconds": 3.456418752670288,
+  "sample_file": "out/Qwen3-30B-A3B-Instruct-2507/ngram/samples.jsonl",
+  "result_file": "out/Qwen3-30B-A3B-Instruct-2507/ngram/samples.jsonl_results.jsonl"
+}

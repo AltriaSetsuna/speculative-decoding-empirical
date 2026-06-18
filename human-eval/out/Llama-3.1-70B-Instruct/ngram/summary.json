@@ -1,0 +1,14 @@
+{
+  "model": "ngram/Llama-3.1-70B-Instruct_vllm-0.12.0",
+  "tasks": 164,
+  "samples": 164,
+  "generation_failures": 0,
+  "generation_seconds": 400.73872327804565,
+  "samples_per_second": 0.40924420444941983,
+  "pass_at_k": {
+    "pass@1": 0.7378048780487805
+  },
+  "evaluation_seconds": 3.6889278888702393,
+  "sample_file": "out/Llama-3.1-70B-Instruct/ngram/samples.jsonl",
+  "result_file": "out/Llama-3.1-70B-Instruct/ngram/samples.jsonl_results.jsonl"
+}

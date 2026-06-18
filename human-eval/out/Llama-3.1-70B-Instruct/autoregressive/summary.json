@@ -1,0 +1,14 @@
+{
+  "model": "Llama-3.1-70B-Instruct_vllm-0.12.0",
+  "tasks": 164,
+  "samples": 164,
+  "generation_failures": 0,
+  "generation_seconds": 398.1863467693329,
+  "samples_per_second": 0.4118674618821229,
+  "pass_at_k": {
+    "pass@1": 0.725609756097561
+  },
+  "evaluation_seconds": 6.184816122055054,
+  "sample_file": "out/Llama-3.1-70B-Instruct/autoregressive/samples.jsonl",
+  "result_file": "out/Llama-3.1-70B-Instruct/autoregressive/samples.jsonl_results.jsonl"
+}

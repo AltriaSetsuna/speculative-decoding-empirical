@@ -1,0 +1,14 @@
+{
+  "model": "suffix/Llama-3.1-8B-Instruct_vllm-0.12.0",
+  "tasks": 164,
+  "samples": 164,
+  "generation_failures": 0,
+  "generation_seconds": 65.59269905090332,
+  "samples_per_second": 2.50027826835922,
+  "pass_at_k": {
+    "pass@1": 0.676829268292683
+  },
+  "evaluation_seconds": 5.1200385093688965,
+  "sample_file": "out/Llama-3.1-8B-Instruct/suffix/samples.jsonl",
+  "result_file": "out/Llama-3.1-8B-Instruct/suffix/samples.jsonl_results.jsonl"
+}
