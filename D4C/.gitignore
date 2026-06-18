@@ -7,5 +7,5 @@ __pycache__
 __MACOSX
 /defects4j-bugs/
 /defects4j-framework/
-/defects4j/
+defects4j
 .venv/
