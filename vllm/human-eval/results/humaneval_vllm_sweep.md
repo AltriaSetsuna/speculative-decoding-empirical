@@ -1,6 +1,6 @@
 # HumanEval vLLM Sweep Results
 
-Generated at: `2026-06-15 10:46:40`
+Generated at: `2026-06-22 08:24:10`
 
 Metrics use the same global vLLM formulas as the CanItEdit sweep:
 
@@ -35,6 +35,7 @@ Metrics use the same global vLLM formulas as the CanItEdit sweep:
 | autoregressive | 0.96 | 77.46 | 1.00 |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | ngram | 0.95 | 77.00 | 0.99 | 2.57 | 0.73 | 0.82 | 0.84 | 0.76 | 0.89 |  |  |  |  |  |  |  |
 | suffix | 0.96 | 79.96 | 1.03 | 0.91 | 0.38 | 0.46 | 0.52 | 0.62 | 0.77 | 0.76 | 0.90 | 0.84 | 0.95 | 0.93 | 0.97 | 0.87 |
+| eagle3_RedHatAI | 0.95 | 41.68 | 0.54 | 1.93 | 0.79 | 0.80 | 0.80 |  |  |  |  |  |  |  |  |  |
 | eagle3_RedHatAI | 0.95 | 75.12 | 0.97 | 2.53 | 0.78 | 0.78 | 0.78 | 0.77 | 0.77 |  |  |  |  |  |  |  |
 
 ## Qwen3-32B
@@ -44,4 +45,5 @@ Metrics use the same global vLLM formulas as the CanItEdit sweep:
 | autoregressive | 0.84 | 38.34 | 1.00 |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | ngram | 0.82 | 44.78 | 1.17 | 2.89 | 0.76 | 0.83 | 0.87 | 0.90 | 0.91 |  |  |  |  |  |  |  |
 | suffix | 0.84 | 59.76 | 1.56 | 1.10 | 0.41 | 0.50 | 0.56 | 0.66 | 0.78 | 0.78 | 0.92 | 0.88 | 0.96 | 0.95 | 0.98 | 0.88 |
+| eagle3_RedHatAI | 0.83 | 74.51 | 1.94 | 1.99 | 0.81 | 0.81 | 0.77 |  |  |  |  |  |  |  |  |  |
 | eagle3_RedHatAI | 0.83 | 86.82 | 2.26 | 2.55 | 0.80 | 0.80 | 0.76 | 0.74 | 0.73 |  |  |  |  |  |  |  |

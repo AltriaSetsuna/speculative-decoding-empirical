@@ -8,7 +8,7 @@ DRAFT_MODEL='RedHatAI/Qwen3-32B-speculator.eagle3'
 FRAME_VERSION="vllm-$(python3 -c 'import vllm; print(vllm.__version__)')"
 CUSTOM_NAME="${method}/${TARGET_MODEL##*/}_${DRAFT_MODEL%%/*}_${FRAME_VERSION}"
 
-SPEC_CFG="{\"model\": \"$DRAFT_MODEL\", \"num_speculative_tokens\": 5,\"method\":\"$method\"}"
+SPEC_CFG="{\"model\": \"$DRAFT_MODEL\", \"num_speculative_tokens\": 3,\"method\":\"$method\"}"
 
 MAX_NUM_SEQS=8
 GPU_NUMS=2

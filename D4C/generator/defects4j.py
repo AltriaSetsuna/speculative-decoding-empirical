@@ -12,6 +12,39 @@ import os
 SKIP_BUGS = {'Lang_18', 'Lang_25', 'Lang_48', 'JacksonDatabind_65', 'JacksonDatabind_89'}
 
 
+def result_index(sample_id, try_id, max_try):
+    return int(sample_id) * int(max_try) + int(try_id)
+
+
+def validate_prediction(sample, fixed_code):
+    if sample['slug'] in SKIP_BUGS:
+        return False, 'Bug deprecated'
+    try:
+        return test(sample['slug'], sample['class_path'], sample['buggy_code'], fixed_code)
+    except Exception as exc:
+        return False, repr(exc)
+
+
+def validate_predictions_from_results(args, data, df_results, df_eval):
+    data_by_slug = data.set_index('slug', drop=False)
+    evaluated = set(df_eval.index)
+    rows = list(df_results.sort_index().iterrows())
+    print(f"validating {len(rows) - len(evaluated)} generated Defects4J predictions after generation")
+    for result_idx, row in tqdm(rows, total=len(rows)):
+        if result_idx in evaluated:
+            continue
+        bug_slug = row['slug']
+        if bug_slug not in data_by_slug.index:
+            reward, submission_result = False, f'Unknown slug: {bug_slug}'
+        else:
+            sample = data_by_slug.loc[bug_slug]
+            reward, submission_result = validate_prediction(sample, row['fix'])
+        df_eval.loc[result_idx] = {'ID': row['ID'], 'slug': bug_slug, 'reward': reward, 'submission_result': submission_result}
+        df_eval.to_csv(args.eval_path, sep=',', encoding='utf-8', index=False)
+        evaluated.add(result_idx)
+    return df_eval
+
+
 def debug(args):
     if not os.path.exists('result/defects4j'):
         os.makedirs('result/defects4j')
@@ -103,16 +136,15 @@ def debug(args):
                 else:
                     response = debugger.chat(prompt, i, temperature=args.temperature)
                 fixed_code = extract_code(response)[0]
-                if sample['slug'] in SKIP_BUGS:
-                    reward, submission_result = False, 'Bug deprecated'
-                else:
-                    reward, submission_result = test(sample['slug'], sample['class_path'], sample['buggy_code'], fixed_code)
-                df_results.loc[i * args.max_try + j] = {'ID': i, 'lang': 'java', 'slug': sample['slug'], 'bug': sample['buggy_code'], 'diff': 'None', 'fix': fixed_code}
+                result_idx = result_index(i, j, args.max_try)
+                df_results.loc[result_idx] = {'ID': i, 'lang': 'java', 'slug': sample['slug'], 'bug': sample['buggy_code'], 'diff': 'None', 'fix': fixed_code}
                 df_results.to_csv(args.result_path, sep=',', encoding='utf-8', index=False)
-                df_eval.loc[i * args.max_try + j] = {'ID': i, 'slug': sample['slug'], 'reward': reward, 'submission_result': submission_result}
-                df_eval.to_csv(args.eval_path, sep=',', encoding='utf-8', index=False)
+                if args.validation_mode == 'streaming':
+                    reward, submission_result = validate_prediction(sample, fixed_code)
+                    df_eval.loc[result_idx] = {'ID': i, 'slug': sample['slug'], 'reward': reward, 'submission_result': submission_result}
+                    df_eval.to_csv(args.eval_path, sep=',', encoding='utf-8', index=False)
 
-                if args.early_stop and reward: # early stop
+                if args.validation_mode == 'streaming' and args.early_stop and reward: # early stop
                     break
 
                 # for item in prompt: # for observation
@@ -123,6 +155,8 @@ def debug(args):
 
             except Exception as e:
                 print(e)  
+    if args.validation_mode == 'deferred':
+        validate_predictions_from_results(args, data, df_results, df_eval)
 
 
 async def debug_async(args):
@@ -185,18 +219,15 @@ async def debug_async(args):
         i, j, sample, fixed_code, error = await future
         if error is not None:
             print(error)
-        if sample['slug'] in SKIP_BUGS:
-            reward, submission_result = False, 'Bug deprecated'
-        else:
-            try:
-                reward, submission_result = test(sample['slug'], sample['class_path'], sample['buggy_code'], fixed_code)
-            except Exception as exc:
-                reward, submission_result = False, repr(exc)
-        result_idx = i * args.max_try + j
+        result_idx = result_index(i, j, args.max_try)
         df_results.loc[result_idx] = {'ID': i, 'lang': 'java', 'slug': sample['slug'], 'bug': sample['buggy_code'], 'diff': 'None', 'fix': fixed_code}
         df_results.to_csv(args.result_path, sep=',', encoding='utf-8', index=False)
-        df_eval.loc[result_idx] = {'ID': i, 'slug': sample['slug'], 'reward': reward, 'submission_result': submission_result}
-        df_eval.to_csv(args.eval_path, sep=',', encoding='utf-8', index=False)
+        if args.validation_mode == 'streaming':
+            reward, submission_result = validate_prediction(sample, fixed_code)
+            df_eval.loc[result_idx] = {'ID': i, 'slug': sample['slug'], 'reward': reward, 'submission_result': submission_result}
+            df_eval.to_csv(args.eval_path, sep=',', encoding='utf-8', index=False)
+    if args.validation_mode == 'deferred':
+        validate_predictions_from_results(args, data, df_results, df_eval)
 
 
 def test(bug_id, class_path, original_method, fixed_method):
@@ -248,6 +279,8 @@ if __name__ == '__main__':
     parser.add_argument('--check', default=False, type=bool)
     parser.add_argument('--early_stop', default=False, type=bool)
     parser.add_argument('--batch_size', default=8, type=int)
+    parser.add_argument('--validation_mode', choices=['none', 'streaming', 'deferred'], default='none',
+                        help='none only writes predictions; streaming validates each prediction as it is generated; deferred validates after all predictions are generated')
     args = parser.parse_args()
 
     result_elements = [args.result_path, args.ablation, str(args.shot)]

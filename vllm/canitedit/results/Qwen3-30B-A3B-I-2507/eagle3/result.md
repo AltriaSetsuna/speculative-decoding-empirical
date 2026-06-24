@@ -1,6 +1,6 @@
 # CanItEdit vLLM Sweep Results
 
-Generated at: `2026-06-15 10:46:24`
+Generated at: `2026-06-22 11:29:00`
 
 Metrics use the same global formulas as the Grafana dashboard:
 
@@ -13,4 +13,4 @@ Metrics use the same global formulas as the Grafana dashboard:
 
 | method | pass@1 | tps | speedup | mal | 0-alpha | 1-alpha | 2-alpha | 3-alpha | 4-alpha | 5-alpha | 6-alpha | 7-alpha | 8-alpha | 9-alpha | 10-alpha | 11-alpha |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| eagle3_RedHatAI | 0.54 | 82.64 |  | 3.00 | 0.86 | 0.84 | 0.81 | 0.80 | 0.80 |  |  |  |  |  |  |  |
+| eagle3_RedHatAI | 0.54 | 70.20 |  | 2.22 | 0.87 | 0.85 | 0.83 |  |  |  |  |  |  |  |  |  |

@@ -21,6 +21,7 @@ MAX_TRY="${MAX_TRY:-1}"
 TEMPERATURE="${TEMPERATURE:-0}"
 BATCH_SIZE="${BATCH_SIZE:-8}"
 D4C_MODE="${D4C_MODE:-agent}"
+D4C_VALIDATION_MODE="${D4C_VALIDATION_MODE:-none}"
 RESULT_PREFIX="${D4C_RESULT_PATH:-result/defects4j/pred}"
 EVAL_PREFIX="${D4C_EVAL_PATH:-result/defects4j/eval}"
 PYTHON_BIN="${PYTHON_BIN:-$REPAIRAGENT_ENV/bin/python}"
@@ -40,6 +41,7 @@ echo "[d4c] defects4j_home=$DEFECTS4J_HOME"
 echo "[d4c] remote_model=$REMOTE_MODEL"
 echo "[d4c] batch_size=$BATCH_SIZE"
 echo "[d4c] mode=$D4C_MODE"
+echo "[d4c] validation_mode=$D4C_VALIDATION_MODE"
 echo "[d4c] test_timeout=$D4C_TEST_TIMEOUT"
 
 if [ "$D4C_MODE" = "agentless" ]; then
@@ -60,5 +62,6 @@ fi
   --chat_mode remote_async \
   --remote_proxy "$REMOTE_PROXY" \
   --mode "$GENERATOR_MODE" \
+  --validation_mode "$D4C_VALIDATION_MODE" \
   --result_path "$RESULT_PREFIX" \
   --eval_path "$EVAL_PREFIX"

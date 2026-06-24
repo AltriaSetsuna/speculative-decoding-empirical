@@ -1,6 +1,6 @@
 # CanItEdit vLLM Sweep Results
 
-Generated at: `2026-06-15 10:46:24`
+Generated at: `2026-06-22 11:29:00`
 
 Metrics use the same global formulas as the Grafana dashboard:
 

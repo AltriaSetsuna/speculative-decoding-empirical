@@ -1,6 +1,6 @@
 # HumanEval vLLM Sweep Results
 
-Generated at: `2026-06-15 09:02:12`
+Generated at: `2026-06-22 08:24:10`
 
 Metrics use the same global vLLM formulas as the CanItEdit sweep:
 
@@ -13,4 +13,4 @@ Metrics use the same global vLLM formulas as the CanItEdit sweep:
 
 | method | pass@1 | tps | speedup | mal | 0-alpha | 1-alpha | 2-alpha | 3-alpha | 4-alpha | 5-alpha | 6-alpha | 7-alpha | 8-alpha | 9-alpha | 10-alpha | 11-alpha |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| mlp | 0.73 | 25.93 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| mlp | 0.73 | 25.94 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |

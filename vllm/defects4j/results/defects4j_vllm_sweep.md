@@ -1,6 +1,6 @@
 # Defects4J vLLM Sweep Results
 
-Generated at: `2026-06-18 18:23:54`
+Generated at: `2026-06-22 08:48:50`
 
 Metrics use the same global formulas as the Grafana dashboard:
 
@@ -35,6 +35,7 @@ Metrics use the same global formulas as the Grafana dashboard:
 | autoregressive | 18.08 | 94.30 | 1.00 |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | ngram | 18.08 | 128.15 | 1.36 | 3.38 | 0.84 | 0.88 | 0.89 | 0.91 | 0.91 |  |  |  |  |  |  |  |
 | suffix | 18.08 | 144.40 | 1.53 | 3.14 | 0.62 | 0.76 | 0.76 | 0.79 | 0.85 | 0.84 | 0.93 | 0.91 | 0.96 | 0.93 | 0.97 | 0.94 |
+| eagle3 |  | 52.07 | 0.55 | 1.57 | 0.71 | 0.71 | 0.70 |  |  |  |  |  |  |  |  |  |
 | eagle3 | 18.54 | 76.79 | 0.81 | 1.61 | 0.64 | 0.63 | 0.65 | 0.68 | 0.68 |  |  |  |  |  |  |  |
 
 ## Qwen3-32B
@@ -44,5 +45,6 @@ Metrics use the same global formulas as the Grafana dashboard:
 | autoregressive | 18.54 | 36.78 | 1.00 |  |  |  |  |  |  |  |  |  |  |  |  |  |
 | ngram | 18.99 | 68.92 | 1.87 | 3.40 | 0.84 | 0.88 | 0.90 | 0.91 | 0.92 |  |  |  |  |  |  |  |
 | suffix | 18.99 | 96.11 | 2.61 | 3.33 | 0.64 | 0.75 | 0.77 | 0.80 | 0.86 | 0.85 | 0.94 | 0.92 | 0.97 | 0.93 | 0.97 | 0.94 |
+| eagle3 |  | 44.38 | 1.21 | 2.10 | 0.84 | 0.84 | 0.81 |  |  |  |  |  |  |  |  |  |
 | eagle3 | 18.31 | 82.04 | 2.23 | 2.83 | 0.83 | 0.83 | 0.80 | 0.78 | 0.77 |  |  |  |  |  |  |  |
 

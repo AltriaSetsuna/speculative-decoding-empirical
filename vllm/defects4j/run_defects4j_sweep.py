@@ -592,6 +592,7 @@ def make_child_env(args: argparse.Namespace) -> dict[str, str]:
     env["TEMPERATURE"] = str(args.temperature)
     env["BATCH_SIZE"] = str(args.batch_size)
     env["D4C_MODE"] = args.d4c_mode
+    env["D4C_VALIDATION_MODE"] = args.validation_mode
     if args.python_bin:
         env["PYTHON_BIN"] = args.python_bin
     if args.eval_pred:
@@ -715,6 +716,7 @@ def main() -> int:
     parser.add_argument("--max-try", type=int, default=1)
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--d4c-mode", choices=["agent", "agentless"], default="agent")
+    parser.add_argument("--validation-mode", choices=["none", "streaming", "deferred"], default="none", help="D4C validation timing: none only generates predictions; streaming validates as predictions finish; deferred waits until all predictions are generated")
     parser.add_argument("--batch-size", type=int, default=8, help="D4C request concurrency for non-mlp runs")
     parser.add_argument("--mlp-batch-size", type=int, default=1, help="D4C request concurrency for mlp")
     parser.add_argument("--startup-timeout", type=float, default=900.0)

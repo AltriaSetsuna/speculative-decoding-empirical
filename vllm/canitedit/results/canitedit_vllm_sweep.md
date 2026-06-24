@@ -1,6 +1,6 @@
 # CanItEdit vLLM Sweep Results
 
-Generated at: `2026-06-15 10:46:24`
+Generated at: `2026-06-22 11:29:00`
 
 Metrics use the same global formulas as the Grafana dashboard:
 
@@ -32,16 +32,12 @@ Metrics use the same global formulas as the Grafana dashboard:
 
 | method | pass@1 | tps | speedup | mal | 0-alpha | 1-alpha | 2-alpha | 3-alpha | 4-alpha | 5-alpha | 6-alpha | 7-alpha | 8-alpha | 9-alpha | 10-alpha | 11-alpha |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| autoregressive | 0.54 | 80.20 | 1.00 |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ngram | 0.55 | 124.21 | 1.55 | 3.83 | 0.87 | 0.91 | 0.94 | 0.95 | 0.96 |  |  |  |  |  |  |  |
-| suffix | 0.54 | 146.62 | 1.83 | 2.93 | 0.54 | 0.71 | 0.77 | 0.84 | 0.93 | 0.89 | 0.96 | 0.92 | 0.97 | 0.96 | 0.98 | 0.91 |
-| eagle3_RedHatAI | 0.54 | 82.64 | 1.03 | 3.00 | 0.86 | 0.84 | 0.81 | 0.80 | 0.80 |  |  |  |  |  |  |  |
+| autoregressive | 0.55 | 80.28 | 1.00 |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| eagle3_RedHatAI | 0.54 | 70.20 | 0.87 | 2.22 | 0.87 | 0.85 | 0.83 |  |  |  |  |  |  |  |  |  |
 
 ## Qwen3-32B
 
 | method | pass@1 | tps | speedup | mal | 0-alpha | 1-alpha | 2-alpha | 3-alpha | 4-alpha | 5-alpha | 6-alpha | 7-alpha | 8-alpha | 9-alpha | 10-alpha | 11-alpha |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| autoregressive | 0.58 | 37.09 | 1.00 |  |  |  |  |  |  |  |  |  |  |  |  |  |
-| ngram | 0.61 | 82.77 | 2.23 | 4.07 | 0.90 | 0.94 | 0.95 | 0.96 | 0.97 |  |  |  |  |  |  |  |
-| suffix | 0.60 | 113.21 | 3.05 | 4.11 | 0.62 | 0.76 | 0.85 | 0.87 | 0.95 | 0.94 | 0.97 | 0.92 | 0.98 | 0.97 | 0.98 | 0.96 |
-| eagle3_RedHatAI | 0.60 | 94.85 | 2.56 | 3.32 | 0.88 | 0.88 | 0.85 | 0.84 | 0.83 |  |  |  |  |  |  |  |
+| autoregressive | 0.58 | 36.96 | 1.00 |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| eagle3_RedHatAI | 0.60 | 79.14 | 2.14 | 2.35 | 0.89 | 0.89 | 0.86 |  |  |  |  |  |  |  |  |  |
