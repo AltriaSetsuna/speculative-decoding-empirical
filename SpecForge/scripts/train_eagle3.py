@@ -2,6 +2,7 @@ import argparse
 import hashlib
 import math
 import os
+import re
 import time
 import wandb
 
@@ -48,7 +49,6 @@ from specforge.optimizer import BF16Optimizer
 from specforge.tracker import Tracker, create_tracker, get_tracker_class
 from specforge.utils import (
     create_draft_config_from_target,
-    get_last_checkpoint,
     print_on_rank0,
     print_with_rank,
     rank_0_priority,
@@ -141,7 +141,7 @@ def parse_args() -> Tuple[ArgumentParser, Namespace]:
         help="directory includes the checkpoint to start training with",
     )
     training_group.add_argument("--eval-interval", type=int, default=5000)
-    training_group.add_argument("--save-interval", type=int, default=5000)
+    training_group.add_argument("--save-interval", type=int, default=2000)
     training_group.add_argument(
         "--log-interval",
         type=int,
@@ -336,6 +336,54 @@ def sanity_check(args: Namespace) -> None:
     args.target_batch_size = args.tp_size * args.batch_size
 
 
+def find_latest_output_checkpoint(output_dir: str) -> Optional[str]:
+    """
+    Find the latest checkpoint saved by this script under output_dir.
+    Checkpoint directories are named epoch_{epoch}_step_{global_step}.
+    """
+    if not os.path.isdir(output_dir):
+        return None
+
+    checkpoint_pattern = re.compile(r"^epoch_(\d+)_step_(\d+)$")
+    checkpoints = []
+    for name in os.listdir(output_dir):
+        match = checkpoint_pattern.match(name)
+        checkpoint_dir = os.path.join(output_dir, name)
+        if match is None or not os.path.isdir(checkpoint_dir):
+            continue
+        if not os.path.isfile(os.path.join(checkpoint_dir, "config.json")):
+            continue
+        checkpoints.append((int(match.group(1)), int(match.group(2)), checkpoint_dir))
+
+    if not checkpoints:
+        return None
+
+    checkpoints.sort(key=lambda item: (item[0], item[1]))
+    return checkpoints[-1][2]
+
+
+def resolve_draft_checkpoint(args: Namespace) -> Optional[str]:
+    if args.resume:
+        checkpoint_dir = find_latest_output_checkpoint(args.output_dir)
+        if checkpoint_dir is None:
+            raise ValueError(
+                f"--resume was set, but no checkpoint like "
+                f"'epoch_<epoch>_step_<step>' was found in {args.output_dir}."
+            )
+        print_on_rank0(f"Resuming from checkpoint: {checkpoint_dir}")
+        return checkpoint_dir
+
+    if args.ckpt_dir is None:
+        return None
+
+    if not os.path.isdir(args.ckpt_dir):
+        raise ValueError(
+            f"Provided base model dir {args.ckpt_dir} is not a valid directory."
+        )
+    print_on_rank0(f"Finetuning from base model: {args.ckpt_dir}")
+    return args.ckpt_dir
+
+
 def build_draft_model(args: Namespace) -> Tuple[AutoDraftModelConfig, nn.Module]:
     # Handle draft model config
     if args.draft_model_config is None:
@@ -348,27 +396,15 @@ def build_draft_model(args: Namespace) -> Tuple[AutoDraftModelConfig, nn.Module]
         # Use provided config file
         draft_model_config = AutoDraftModelConfig.from_file(args.draft_model_config)
 
-    # Handle base ckpt, config file
-    draft_model_last_checkpoint = None
-    if args.ckpt_dir is not None:
-        if os.path.isdir(args.ckpt_dir):
-            draft_model_config = os.path.join(args.ckpt_dir, "config.json")
-            draft_model_last_checkpoint = args.ckpt_dir
-            print_on_rank0(f"Finetuning from base model: {draft_model_last_checkpoint}")
-        else:
-            raise ValueError(
-                f"Provided base model dir {args.ckpt_dir} is not a valid directory."
-            )
+    draft_model_checkpoint = resolve_draft_checkpoint(args)
+    args.resume_checkpoint_dir = draft_model_checkpoint if args.resume else None
 
-    # detecting last ckpt for draft model
-    if args.resume and os.path.isdir(args.output_dir):
-        print_on_rank0(args.output_dir)
-        draft_model_last_checkpoint = get_last_checkpoint(args.output_dir)
-        print_on_rank0(f"Last checkpoint detected: {draft_model_last_checkpoint}")
-
-    if draft_model_last_checkpoint or True:
+    if draft_model_checkpoint:
+        checkpoint_config_path = os.path.join(draft_model_checkpoint, "config.json")
+        if os.path.isfile(checkpoint_config_path):
+            draft_model_config = AutoDraftModelConfig.from_file(checkpoint_config_path)
         draft_model = AutoEagle3DraftModel.from_pretrained(
-            "/home/yijiali/project/SpecForge/outputs/Llama-3.1-70B-eagle3-ST-offline_6/epoch_1_step_10000",
+            draft_model_checkpoint,
             attention_backend=args.attention_backend,
             torch_dtype=torch.bfloat16,
         ).cuda()
@@ -382,6 +418,38 @@ def build_draft_model(args: Namespace) -> Tuple[AutoDraftModelConfig, nn.Module]
     draft_model.load_embedding(args.target_model_path, embedding_key=args.embedding_key)
     draft_model.freeze_embedding()
     return draft_model_config, draft_model
+
+
+def load_resume_training_state(
+    checkpoint_dir: Optional[str],
+    optimizer: Optimizer,
+    train_dataloader: DataLoader,
+) -> Tuple[int, int, int]:
+    if checkpoint_dir is None:
+        return 0, 0, 0
+
+    training_state_path = os.path.join(checkpoint_dir, "training_state.pt")
+    if not os.path.isfile(training_state_path):
+        raise ValueError(
+            f"Resume checkpoint {checkpoint_dir} does not contain training_state.pt."
+        )
+
+    training_state = torch.load(
+        training_state_path, map_location="cpu", weights_only=False
+    )
+    optimizer.load_state_dict(training_state)
+
+    global_step = int(training_state.get("global_step", 0))
+    start_epoch = int(training_state.get("epoch", 0))
+    steps_into_epoch = global_step - start_epoch * len(train_dataloader)
+    steps_into_epoch = max(0, min(steps_into_epoch, len(train_dataloader)))
+
+    print_on_rank0(
+        f"Loaded training state from {training_state_path}: "
+        f"epoch={start_epoch}, global_step={global_step}, "
+        f"skip_batches_in_epoch={steps_into_epoch}"
+    )
+    return start_epoch, global_step, steps_into_epoch
 
 
 def build_dataloaders(
@@ -732,12 +800,16 @@ def main():
     )
     print_with_rank("Initialized optimizer and scheduler")
 
+    start_epoch, global_step, resume_skip_batches = load_resume_training_state(
+        getattr(args, "resume_checkpoint_dir", None),
+        optimizer,
+        train_dataloader,
+    )
+
     # ================================================
     # 6. Build tracker
     # ================================================
     tracker = build_tracker(args, parser)
-    global_step = 0
-    start_epoch = 0
     dist.barrier()
 
     last_time = time.time()
@@ -759,7 +831,10 @@ def main():
         else:
             progress_bar = train_dataloader
 
-        for data in progress_bar:
+        for batch_idx, data in enumerate(progress_bar):
+            if epoch == start_epoch and batch_idx < resume_skip_batches:
+                continue
+
             global_step += 1
 
             # ================================================

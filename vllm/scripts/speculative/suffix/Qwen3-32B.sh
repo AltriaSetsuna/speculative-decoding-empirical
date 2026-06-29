@@ -1,6 +1,6 @@
 #!bash
 
-
+export HF_HUB_OFFLINE=1
 method="suffix"
 TARGET_MODEL='Qwen/Qwen3-32B'
 FRAME_VERSION="vllm-$(python3 -c 'import vllm; print(vllm.__version__)')"
@@ -9,9 +9,9 @@ SPEC_CFG="{\"num_speculative_tokens\": 32,\"method\":\"$method\"}"
 
 
 MAX_NUM_SEQS=10
-GPU_NUMS=1
+GPU_NUMS=2
 
-CUDA_VISIBLE_DEVICES=2 \
+CUDA_VISIBLE_DEVICES=4,5 \
 vllm serve $TARGET_MODEL \
     --trust_remote_code \
     --hf_token "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"\
@@ -23,4 +23,5 @@ vllm serve $TARGET_MODEL \
     --host 0.0.0.0 \
     --speculative_config "$SPEC_CFG" \
     --max_model_len 32768 \
-    --max-cudagraph-capture-size 1024
+    --max-cudagraph-capture-size 1024 \
+    --enable-prefix-caching \

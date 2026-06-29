@@ -1,7 +1,7 @@
 #!/bin/bash
 
-TARGET_MODEL='meta-llama/Llama-3.1-70B-Instruct'
-FRAME_VERSION='vllm-0.12.0'
+TARGET_MODEL='Qwen/Qwen3-32B'
+FRAME_VERSION="vllm-0.12.0"
 CUSTOM_NAME="${TARGET_MODEL##*/}_${FRAME_VERSION}"
 
 # 定义日志目录
@@ -20,11 +20,11 @@ echo "日志目录: $LOG_DIR"
     # 运行核心命令
     # 注意：/usr/bin/time 的 -a 参数非常重要，确保追加而不覆盖
     if ! /usr/bin/time -o "$LOG_DIR/time.log" -av \
-        mini-extra swebench \
+        python -m minisweagent.run.mini_extra swebench \
         --subset swe-gym \
         --split train \
         --output "$LOG_DIR" \
-        --workers 8 \
+        --workers 16 \
         --model "$CUSTOM_NAME" \
         --config "/home/yijiali/project/mini-swe-agent/src/minisweagent/config/extra/SWE-Gym.yaml" \
         ; then
